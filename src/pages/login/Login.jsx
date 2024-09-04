@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function Login(){
 
-    const {user,loginGoogleWithPopUp,observeAuthState} = useAuthStore();
+    const {user,loginGoogleWithPopUp,observeAuthState,logout} = useAuthStore();
 
     const handleLogin = useCallback(()=>{
         loginGoogleWithPopUp();
