@@ -1,5 +1,5 @@
-import { onAuthStateChanged, signInWithPopup} from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup} from "firebase/auth";
+
 import { auth } from "../../firebase.config";
 import { create } from "zustand";
 
