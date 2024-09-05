@@ -16,6 +16,8 @@ export default function Login(){
         console.log(user)
     }, [observeAuthState,user])
 
+
+
     return (
         <>
         <div className="container-login">
@@ -26,9 +28,8 @@ export default function Login(){
                             <p>
                                 Bienvenido a Textile Purify
                             </p>
-                            <form>
+                            
                                 <button className='btnform' onClick={handleLogin}>Sign-in-with-google</button>
-                            </form>
                         </div>
                     </div>
                 </div>
