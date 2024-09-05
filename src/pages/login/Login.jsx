@@ -2,6 +2,7 @@ import { useCallback } from "react"
 import useAuthStore from "../../stores/use-auth-store"
 import { useEffect } from "react";
 
+
 export default function Login(){
 
     const {user,loginGoogleWithPopUp,observeAuthState} = useAuthStore();
@@ -18,7 +19,22 @@ export default function Login(){
     return (
         <>
         <div className="container-login">
-            <button onClick={handleLogin}>Login</button>
+            <div className="row">
+                <div className="row-md-4">
+                    <div className="loginpart1">
+                        <div className="card card-body">
+                            <p>
+                                Bienvenido a Textile Purify
+                            </p>
+                            <form>
+                                <button className='btnform' onClick={handleLogin}>Sign-in-with-google</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div className="row-md-8">
+                </div>
+            </div>
         </div>
         </>
     )
