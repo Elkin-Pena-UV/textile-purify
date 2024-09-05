@@ -1,0 +1,17 @@
+<<<<<<< HEAD
+html,
+body,
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+canvas{
+  touch-action: none;
+}
+=======
+>>>>>>> 1c424525a0589b44509ecd97115e90840febd575
