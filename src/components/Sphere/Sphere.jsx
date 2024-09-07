@@ -14,9 +14,10 @@ function Sphere (props) {
     if(sphereRef.current){
       const elapsedTime= state.clock.getElapsedTime();
       sphereRef.current.position.y = Math.sin(elapsedTime)*2
-      sphereRef.current.position.x = Math.cos(elapsedTime)*2
       sphereRef.current.rotation.y += 0.5 *delta;
-    }
+      sphereRef.current.z=Math.sin(elapsedTime/4)*20
+
+      }
   }
   
   )
