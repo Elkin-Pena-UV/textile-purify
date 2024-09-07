@@ -5,14 +5,16 @@ import { useEffect } from "react";
 export default function Login() {
   const { user, loginGoogleWithPopUp, observeAuthState } = useAuthStore();
 
-  const handleLogin = useCallback(() => {
-    loginGoogleWithPopUp();
-  }, [loginGoogleWithPopUp]);
-
   useEffect(() => {
     observeAuthState();
     console.log(user);
   }, [observeAuthState, user]);
+
+  
+
+  const handleLogin = useCallback(() => {
+    loginGoogleWithPopUp();
+  }, [loginGoogleWithPopUp]);
 
   return (
     <>
