@@ -4,8 +4,9 @@ import useAuthStore from "../../stores/use-auth-store";
 import { Canvas, useFrame } from "@react-three/fiber";
 import Sphere from "../../components/Sphere/Sphere";
 import { OrbitControls } from "@react-three/drei";
-import UserDAO from "../../daos/UserDao";
 import { getDocs, query, where } from "firebase/firestore";
+import UserDAO from "../../daos/UserDao";
+
 const Home = () => {
   const { user, logout } = useAuthStore();
 
