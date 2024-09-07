@@ -5,7 +5,6 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import Sphere from "../../components/Sphere/Sphere";
 import { OrbitControls } from "@react-three/drei";
 import { getDocs, query, where } from "firebase/firestore";
-import UserDAO from "../../daos/UserDao";
 import UserDao from "../../daos/UserDao";
 
 const Home = () => {
