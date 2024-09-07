@@ -6,6 +6,7 @@ import Sphere from "../../components/Sphere/Sphere";
 import { OrbitControls } from "@react-three/drei";
 import { getDocs, query, where } from "firebase/firestore";
 import UserDAO from "../../daos/UserDao";
+import UserDao from "../../daos/UserDao";
 
 const Home = () => {
   const { user, logout } = useAuthStore();
@@ -16,7 +17,7 @@ const Home = () => {
 
   useEffect( ()  => {
     const getEmail = async () => {
-      const queryEmail = query(UserDAO.collectionRef, where("email", "==", user.email));
+      const queryEmail = query(UserDao.collectionRef, where("email", "==", user.email));
       const email =  await getDocs(queryEmail);
     
     if (user && email.empty) {
@@ -26,7 +27,7 @@ const Home = () => {
         name: user.displayName,
         photo: user.photoURL,
       };
-      UserDAO.createUser(newUser);
+      UserDao.createUser(newUser);
     }
 
   }
