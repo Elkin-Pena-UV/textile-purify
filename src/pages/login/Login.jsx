@@ -1,18 +1,21 @@
 import { useCallback } from "react";
 import useAuthStore from "../../stores/use-auth-store";
 import { useEffect } from "react";
+import UserDAO from "../../daos/UserDao";
 
 export default function Login() {
   const { user, loginGoogleWithPopUp, observeAuthState } = useAuthStore();
-
-  const handleLogin = useCallback(() => {
-    loginGoogleWithPopUp();
-  }, [loginGoogleWithPopUp]);
 
   useEffect(() => {
     observeAuthState();
     console.log(user);
   }, [observeAuthState, user]);
+
+  
+
+  const handleLogin = useCallback(() => {
+    loginGoogleWithPopUp();
+  }, [loginGoogleWithPopUp]);
 
   return (
     <>
