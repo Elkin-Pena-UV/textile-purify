@@ -7,7 +7,7 @@ class UserDAO {
   }
 
   async getUserById(id) {
-    await getDoc(doc(this.collectionReft.doc, id))
+    await getDoc(doc(this.collectionRef.doc, id))
       .then((userDoc) => {
         if (userDoc.exists()) {
           return { success: true, data: userDoc.data() };
