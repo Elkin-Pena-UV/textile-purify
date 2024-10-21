@@ -17,5 +17,11 @@ const Router = createBrowserRouter([
         <ProtectedRoute> <Home/> </ProtectedRoute>
     )
     },
+    {
+      path:"/pollution",
+      element:(
+        <ProtectedRoute> <Pollution/> </ProtectedRoute>
+    )
+    }
   ])
   export default Router;
