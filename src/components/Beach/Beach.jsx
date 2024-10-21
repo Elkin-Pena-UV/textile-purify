@@ -16,7 +16,7 @@ const Beach = (props) => {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
+      <group name="Scene">
         <group name="Sketchfab_model" rotation={[-1.566, 0, 0]}>
           <group name="root">
             <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
@@ -51,7 +51,6 @@ const Beach = (props) => {
               >
                 <group name="skeletal3_35" scale={0.004}>
                   <group name="GLTF_created_0">
-                    <primitive object={nodes.GLTF_created_0_rootJoint} />
                     <skinnedMesh
                       name="Object_12"
                       geometry={nodes.Object_12.geometry}
@@ -59,6 +58,7 @@ const Beach = (props) => {
                       skeleton={nodes.Object_12.skeleton}
                     />
                     <group name="shark2_34" />
+                    <primitive object={nodes.GLTF_created_0_rootJoint} />
                   </group>
                 </group>
               </group>

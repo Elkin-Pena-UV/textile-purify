@@ -52,9 +52,17 @@ const Home = () => {
       </button>
 
       <div className="container">
-        <Canvas>
+        <Canvas camera={{ position: [4, 5, 5], fov: 50 }}>
+          <ambientLight intensity={0.3} />
+          <pointLight position={[10, 10, 10]} intensity={.2} />
+          <spotLight
+            position={[-10, 10, 5]}
+            intensity={0.5}
+            angle={0.2}
+            penumbra={0.3}
+          />
+          <directionalLight position={[10, 10, 10]} intensity={2.7} />
           <OrbitControls />
-          <directionalLight position={[10, 10, 10]} intensity={7} />
           <Beach/>
           <group position={[0, 5, 0]}>
             <PositionalAudio
