@@ -6,7 +6,8 @@ import { getDocs, query, where } from "firebase/firestore";
 import UserDao from "../../daos/UserDao";
 import { OrbitControls, PositionalAudio } from "@react-three/drei";
 import Fish from "../../components/Fish/Fish";
-import LightFish from "./ligth/LigthFish";
+import LightFish from "./ligths/LigthFish";
+import Header from "../../components/header/Header";
 
 const Home = () => {
   const { user, logout } = useAuthStore();
@@ -46,11 +47,8 @@ const Home = () => {
 
   return (
     <>
-      <button className="btnform" onClick={handleLogout}>
-        Logout
-      </button>
-
       <div className="container">
+      <Header />
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
           <LightFish/>
