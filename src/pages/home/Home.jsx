@@ -52,6 +52,7 @@ const Home = () => {
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
           <LightFish/>
+          <Fish />
 
           <group position={[0, 5, 0]}>
             <PositionalAudio
