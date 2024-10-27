@@ -50,14 +50,7 @@ const Home = () => {
           <LightFish/>
           <Fish />
 
-          <group position={[0, 5, 0]}>
-            <PositionalAudio
-              autoplay
-              ref={audioRef}
-              loop
-              url="/sounds/lazy.mp3"
-            />
-          </group>
+          
         </Canvas>
       </div>
     </>
