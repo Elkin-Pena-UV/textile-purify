@@ -7,6 +7,21 @@ body,
   width: 100%;
 }
 
+h1{
+  font-weight: 900;
+  font-size: 45px;
+}
+
+h2{
+  font-weight: 700;
+  font-size: 23px;
+}
+
+p{
+  font-weight: 500;
+  font-size: 21px;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -14,8 +29,5 @@ body {
 } 
 
 .container {
-  display: flex;
   height: 100vh;
-  justify-content: center;
-  background-color: #f5f5f5;
 }
