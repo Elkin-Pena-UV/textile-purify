@@ -48,10 +48,10 @@ const Home = () => {
   return (
     <>
       <div className="container">
-      <Header />
+        <Header />
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
-          <LightFish/>
+          <LightFish />
           <Fish />
 
           <group position={[0, 5, 0]}>
