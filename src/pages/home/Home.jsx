@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import { useCallback, useEffect, useRef } from "react";
 import useAuthStore from "../../stores/use-auth-store";
@@ -38,12 +39,6 @@ const Home = () => {
 
   const audioRef = useRef();
 
-  // const handleAudio= useCallback(() => {
-
-  //   audioRef.current.play();
-  //   audioRef.current.setVolumen(10);
-
-  // })
 
   return (
     <>
@@ -51,17 +46,10 @@ const Home = () => {
         <Header />
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
-          <LightFish />
+          <LightFish/>
           <Fish />
 
-          <group position={[0, 5, 0]}>
-            <PositionalAudio
-              autoplay
-              ref={audioRef}
-              loop
-              url="/sounds/lazy.mp3"
-            />
-          </group>
+          
         </Canvas>
       </div>
     </>
