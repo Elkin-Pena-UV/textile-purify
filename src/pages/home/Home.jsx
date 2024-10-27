@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import { useCallback, useEffect, useRef } from "react";
 import useAuthStore from "../../stores/use-auth-store";
@@ -8,7 +9,8 @@ import { OrbitControls, PositionalAudio } from "@react-three/drei";
 import Fish from "../../components/Fish/Fish";
 import LightFish from "./ligths/LigthFish";
 import Header from "../../components/header/Header";
-
+import Shark from "../../components/Shark/Shark";
+import Beach from "../../components/Beach/Beach";
 const Home = () => {
   const { user, logout } = useAuthStore();
 
@@ -38,30 +40,15 @@ const Home = () => {
 
   const audioRef = useRef();
 
-  // const handleAudio= useCallback(() => {
-
-  //   audioRef.current.play();
-  //   audioRef.current.setVolumen(10);
-
-  // })
 
   return (
     <>
       <div className="container">
-      <Header />
+        <Header />
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
           <LightFish/>
-          <Fish />
-
-          <group position={[0, 5, 0]}>
-            <PositionalAudio
-              autoplay
-              ref={audioRef}
-              loop
-              url="/sounds/lazy.mp3"
-            />
-          </group>
+          <Fish/>
         </Canvas>
       </div>
     </>
