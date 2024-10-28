@@ -4,16 +4,17 @@ import { OrbitControls, Text } from "@react-three/drei";
 import React from "react";
 import "./Pollution.css";
 import Floor from "../../components/floor/Floor";
+import LightBigShark from "../../components/ligths/LightBigShark";
 
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
   return (
     <Canvas
+    shadows
     camera={{ position: [0, 2.5, 6], fov: 50 }}
     fog={{ color: '#0b3d91', near: 5, far: 20 }}
     >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <LightBigShark/>
       <OrbitControls />
       <BigShark />
       <Floor />
@@ -53,18 +54,6 @@ const Pollution = () => {
         <SharkScene />
       </div>
     </div>
-    // <div className="container">
-    //   <div className="title-pollution">
-    //     <h1>Contaminación del agua</h1>
-    //     <div className="content">
-    //       <h2>energia</h2>
-    //     </div>
-    //   </div>
-    //   <SharkScene />
-    //   <div className="content">
-    //     <h2>Hola</h2>
-    //   </div>
-    // </div>
   );
 };
 export default Pollution;
