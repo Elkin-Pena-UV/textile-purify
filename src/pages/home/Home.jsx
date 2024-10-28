@@ -7,9 +7,11 @@ import { getDocs, query, where } from "firebase/firestore";
 import UserDao from "../../daos/UserDao";
 import { OrbitControls, PositionalAudio } from "@react-three/drei";
 import Fish from "../../components/Fish/Fish";
-import LightFish from "./ligths/LigthFish";
+import ligthFish  from "../../components/Fish/Fish";
 import Header from "../../components/header/Header";
-
+import Shark from "../../components/Shark/Shark";
+import Beach from "../../components/Beach/Beach";
+import LightFish from "../../components/ligths/LigthFish";
 const Home = () => {
   const { user, logout } = useAuthStore();
 
@@ -47,9 +49,7 @@ const Home = () => {
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
           <LightFish/>
-          <Fish />
-
-          
+          <Fish/>
         </Canvas>
       </div>
     </>

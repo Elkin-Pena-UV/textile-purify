@@ -60,6 +60,7 @@ const Beach = (props) => {
                     <group name="shark2_34" />
                     <primitive object={nodes.GLTF_created_0_rootJoint} />
                   </group>
+                  
                 </group>
               </group>
             </group>
