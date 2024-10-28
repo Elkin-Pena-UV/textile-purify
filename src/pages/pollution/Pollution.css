@@ -1,23 +1,8 @@
-.title-pollution{
-    color: #181818;
-    margin-bottom: 10px;
-}
-.content{
-    color: #181818
-}
-
 .container-pollution{  
-    background: linear-gradient(to bottom, #003366, #83b0fd); 
-}
-
-/* En tu archivo CSS */
-.page-container {
-    padding: 20px;
+    background: url(/images/backgroundPollution.jpg) no-repeat center center fixed;
+    padding: 0.5px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semi-transparente */
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
+}
   
   h1 {
     font-size: 2.5rem;
