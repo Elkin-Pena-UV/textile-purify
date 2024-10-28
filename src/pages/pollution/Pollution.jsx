@@ -9,7 +9,7 @@ import Floor from "../../components/floor/Floor";
 const SharkScene = () => {
   return (
     <Canvas
-    camera={{ position: [0, 5, 10], fov: 50 }}
+    camera={{ position: [0, 2.5, 6], fov: 50 }}
     fog={{ color: '#0b3d91', near: 5, far: 20 }}
     >
       <ambientLight intensity={0.5} />
@@ -20,7 +20,7 @@ const SharkScene = () => {
       <Text
       position={[0, 2, 0]}       // Posición del texto en el canvas
       fontSize={0.2}              // Tamaño del texto
-      color="lightblue"           // Color del texto
+      color="white"           // Color del texto
       maxWidth={5}                // Ancho máximo antes de envolver
       lineHeight={1.2}            // Altura de línea
       anchorX="center"            // Ancla del texto en X
@@ -36,7 +36,7 @@ const SharkScene = () => {
 //Este componente es el que se encarga de mostrar la información de la contaminación del agua
 const Pollution = () => {
   return (
-    <div className="container-pollution" style={{ padding: "20px", textAlign: "center" }}>
+    <div className="container-pollution" >
       <h1>Contaminación del Agua</h1>
       <div className="text-container">
         <p>
@@ -51,9 +51,6 @@ const Pollution = () => {
       </div>
       <div style={{ width: '100%', height: '500px', marginTop: '20px' }}>
         <SharkScene />
-      </div>
-      <div style={{ marginTop: '20px' }}>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque delectus aliquam eos, dolorum animi corrupti minus porro consequatur provident impedit neque numquam cum deserunt veritatis eveniet vero, perferendis corporis a.</p>
       </div>
     </div>
     // <div className="container">
