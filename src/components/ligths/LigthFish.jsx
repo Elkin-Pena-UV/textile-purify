@@ -5,7 +5,6 @@ import { useFrame } from "@react-three/fiber";
 import { MathUtils } from "three";
 
 const LightFish = () => {
-  // Crea una referencia para el SpotLight
   const spotLightRef = useRef();
 
   useFrame(({ clock }) => {
@@ -18,17 +17,16 @@ const LightFish = () => {
     <>
       <ambientLight intensity={2.1} />
       <SpotLight
-        ref={spotLightRef} // Referencia al SpotLight
+        ref={spotLightRef} 
         position={[0, 0, 2]}
-        angle={Math.PI / 4} // Ángulo del cono de luz
-        penumbra={1} // Suaviza los bordes de la luz
-        intensity={2}
-        shadow-mapSize={[1024, 1024]} // Tamaño de la textura de la sombra
-        shadow-camera-far={50} // Distancia a la que la sombra es visible
-        shadow-camera-left={-1} // Ajusta el área de sombra
+        angle={Math.PI / 4} 
+        penumbra={1} 
+        shadow-mapSize={[1024, 1024]} 
+        shadow-camera-far={50} 
+        shadow-camera-left={-1} 
         shadow-camera-right={1}
         shadow-camera-top={10}
-        shadow-camera-bottom={-10} // Intensidad de la luz
+        shadow-camera-bottom={-10} 
         castShadow
       />
       
