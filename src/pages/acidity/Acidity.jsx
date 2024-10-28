@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Fish from "../../components/Fish/Fish";
