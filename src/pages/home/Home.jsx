@@ -9,8 +9,6 @@ import { OrbitControls, PositionalAudio } from "@react-three/drei";
 import Fish from "../../components/Fish/Fish";
 import ligthFish  from "../../components/Fish/Fish";
 import Header from "../../components/header/Header";
-import Shark from "../../components/Shark/Shark";
-import Beach from "../../components/Beach/Beach";
 import LightFish from "../../components/ligths/LigthFish";
 const Home = () => {
   const { user, logout } = useAuthStore();
