@@ -15,7 +15,7 @@ const LightFish = () => {
 
   return (
     <>
-      <ambientLight intensity={5} />
+      <ambientLight intensity={4} />
       <SpotLight
         ref={spotLightRef} 
         position={[0, 0, 2]}

@@ -44,7 +44,7 @@ const Acidity = () => {
           <Canvas className="acidity-canvas" camera={{ position: [0, 5, 10] }}>
             <OrbitControls makeDefault />
             <LightFish />
-            <Fish />
+            <Fish/>
             <LightFish />
             <BakeShadows/>
           </Canvas>

@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import { useRef, useEffect, useMemo } from "react";
-import { useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
-import * as THREE from "three";
-import { MeshStandardMaterial, DoubleSide, Vector3 } from "three";
+import { MeshStandardMaterial, DoubleSide } from "three";
 const Fish = (props) => {
   const group = useRef();
   const { nodes, animations } = useGLTF("models-3d/fish.glb");
@@ -27,19 +25,28 @@ const Fish = (props) => {
     });
   }, [fishTexture]);
 
-
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <mesh
-          name="Fish"
-          geometry={nodes.Fish.geometry}
-          scale={[1, 1, 1]}
-          material={fishMaterial}
-          position={[0, 0, 0]}
-          castShadow
-          receiveShadow
-        />
+      <group name="Sketchfab_Scene">
+        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
+          <group name="root">
+            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
+              <group
+                name="koifish_0"
+                position={[-0.268, 0, 0]}
+                rotation={[Math.PI, 0, Math.PI]}
+              >
+                <mesh
+                  name="mesh_0"
+                  geometry={nodes.mesh_0.geometry}
+                  material={fishMaterial}
+                  morphTargetDictionary={nodes.mesh_0.morphTargetDictionary}
+                  morphTargetInfluences={nodes.mesh_0.morphTargetInfluences}
+                />
+              </group>
+            </group>
+          </group>
+        </group>
       </group>
     </group>
   );
