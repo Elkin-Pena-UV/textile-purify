@@ -1,15 +1,21 @@
-/* eslint-disable react/no-unknown-property */
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Fish from "../../components/Fish/Fish";
 import LightFish from "../../components/ligths/LigthFish";
-import { OrbitControls } from "@react-three/drei";
+import { BakeShadows, OrbitControls } from "@react-three/drei";
 import "./Acidity.css";
 
 const Acidity = () => {
   const canvasRef = useRef(null);
+  const [showModel, setShowModel] = useState(false);
+
   const scrollToCanvas = () => {
     canvasRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleShowModel = () => {
+    setShowModel(true); 
+    scrollToCanvas(); 
   };
 
   return (
@@ -29,29 +35,22 @@ const Acidity = () => {
         ecosistemas acuáticos.
       </p>
 
-      <button className="acidity-button" onClick={scrollToCanvas}>
+      <button className="acidity-button" onClick={handleShowModel} aria-label="Desplazarse al modelo 3D">
         Ver Modelo 3D
       </button>
 
       <div ref={canvasRef} className="canvas-wrapper">
-        <Canvas
-          className="acidity-canvas"
-          shadows={true}
-          camera={{ position: [0, 5, 10], fov: 75 }}
-        >
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            enableRotate={true}
-          />
-          <LightFish />
-          <mesh receiveShadow>
-            <planeGeometry args={[100, 100]} />
-            <meshStandardMaterial color="#ffffff" />
-          </mesh>
-
-          <Fish position={[0, 0, 0]} />
-        </Canvas>
+        {showModel ? ( 
+          <Canvas className="acidity-canvas" camera={{ position: [0, 5, 10] }}>
+            <OrbitControls makeDefault />
+            <LightFish />
+            <Fish />
+            <LightFish />
+            <BakeShadows/>
+          </Canvas>
+        ) : (
+          <div className="loading">Haz clic en el botón para cargar el modelo...</div>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import { useRef, useEffect, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
-import { MeshStandardMaterial } from "three";
-
+import * as THREE from "three";
+import { MeshStandardMaterial, DoubleSide, Vector3 } from "three";
 const Fish = (props) => {
   const group = useRef();
   const { nodes, animations } = useGLTF("models-3d/fish.glb");
@@ -15,25 +17,16 @@ const Fish = (props) => {
     normalMap: PATH + "koifishnormal_(1).jpg",
   });
 
-  console.log(fishTexture.map, fishTexture.normalMap);
-
   const fishMaterial = useMemo(() => {
     return new MeshStandardMaterial({
       map: fishTexture.map,
       normalMap: fishTexture.normalMap,
       metalness: 0.8,
       roughness: 1.8,
+      side: DoubleSide,
     });
   }, [fishTexture]);
 
-  useEffect(() => {
-    if (actions && actions["swim"]) {
-      actions["swim"].reset().fadeIn(0.5).play();
-    }
-    if (actions && actions["tailWiggle"]) {
-      actions["tailWiggle"].reset().fadeIn(0.5).play();
-    }
-  }, [actions]);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -41,10 +34,11 @@ const Fish = (props) => {
         <mesh
           name="Fish"
           geometry={nodes.Fish.geometry}
-          material={fishMaterial} 
-          rotation={[Math.PI, 0, Math.PI]}
+          scale={[1, 1, 1]}
+          material={fishMaterial}
+          position={[0, 0, 0]}
           castShadow
-          
+          receiveShadow
         />
       </group>
     </group>
