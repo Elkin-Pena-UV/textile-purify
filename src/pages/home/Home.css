@@ -1,0 +1,21 @@
+.container-content {
+  text-align: center; 
+  padding: 20px; 
+}
+.team-description {
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #000000; 
+    border-radius: 5px; 
+    padding: 15px; 
+    margin-top: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    text-align: justify;
+  }
+  
+
+
+
+p {
+  color: #666; 
+  line-height: 1.6;
+}

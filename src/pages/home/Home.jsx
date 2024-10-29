@@ -7,9 +7,10 @@ import { getDocs, query, where } from "firebase/firestore";
 import UserDao from "../../daos/UserDao";
 import { OrbitControls, PositionalAudio } from "@react-three/drei";
 import Fish from "../../components/Fish/Fish";
-import ligthFish  from "../../components/Fish/Fish";
+import ligthFish from "../../components/Fish/Fish";
 import Header from "../../components/header/Header";
 import LightFish from "../../components/ligths/LigthFish";
+import "./Home.css";
 const Home = () => {
   const { user, logout } = useAuthStore();
 
@@ -39,16 +40,29 @@ const Home = () => {
 
   const audioRef = useRef();
 
-
   return (
     <>
       <div className="container">
         <Header />
         <Canvas camera={{ position: [0, 1, 8] }}>
           <OrbitControls makeDefault />
-          <LightFish/>
-          <Fish/>
         </Canvas>
+        <div className="container-content">
+          <h1>Introducción a la Problemática del Agua</h1>
+          <div className="team-description">
+            <p>
+            El agua es vital para la vida, pero enfrenta una crisis global.
+             Más de 2 mil millones de personas carecen de acceso a agua potable segura,
+              lo que provoca enfermedades y muertes. La contaminación, el crecimiento 
+              poblacional y el cambio climático agravan la escasez de agua en muchas 
+              regiones. Además, la sobreexplotación de recursos hídricos pone en riesgo 
+              la sostenibilidad de ecosistemas y comunidades. Sin acciones urgentes, la 
+              lucha por el acceso equitativo al agua se intensificará, afectando el 
+              desarrollo humano y ambiental.
+            </p>
+
+          </div>
+        </div>
       </div>
     </>
   );
