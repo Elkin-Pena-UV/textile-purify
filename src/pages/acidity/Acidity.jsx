@@ -4,6 +4,7 @@ import Fish from "../../components/Fish/Fish";
 import LightFish from "../../components/ligths/LigthFish";
 import { BakeShadows, OrbitControls } from "@react-three/drei";
 import "./Acidity.css";
+import Header from "../../components/header/Header";
 
 const Acidity = () => {
   const canvasRef = useRef(null);
@@ -19,6 +20,9 @@ const Acidity = () => {
   };
 
   return (
+    
+  <div className="container-header">
+    <Header />
     <div className="acidity-container">
       <h1 className="acidity-title">Introducción</h1>
       <p className="acidity-description">
@@ -52,6 +56,7 @@ const Acidity = () => {
           <div className="loading">Haz clic en el botón para cargar el modelo...</div>
         )}
       </div>
+    </div>
     </div>
   );
 };
