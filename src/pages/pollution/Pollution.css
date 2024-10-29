@@ -1,7 +1,19 @@
-.container-pollution{  
+/* .container-pollution{  
     background: url(/images/backgroundPollution.jpg) no-repeat center center fixed;
     padding: 0.5px;
     text-align: center;
+    min-height: 120vh;
+} */
+.container-pollution{  
+  background: url(/images/backgroundPollution.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+  min-height: 140vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
 }
   
   h1 {
