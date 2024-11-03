@@ -1,55 +1,27 @@
+:root {
+  --color-white: #ffffff;
+  --color-dark: #000000;
+  --font-size-title: 2.5rem;
+  --font-size-description: 1.2rem;
+  --padding: 20px;
+}
+
 .acidity-container {
-  background-image: url("/images/backgroundAcidity.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 120vh;
+  background: url("/images/backgroundAcidity.jpg") center/cover no-repeat;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-}
-
-.acidity-title {
-  color: #fff;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.acidity-description {
-  color: #fff;
-  font-size: 1.2rem;
-  text-align: center;
-  max-width: 800px;
-  margin-bottom: 30px;
-  text-align: justify;
-}
-
-.acidity-button {
-  background-color: #38a3a5;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.acidity-button:hover {
-  background-color: #2e8c8f;
-  transform: scale(1.05);
+  padding: var(--padding);
 }
 
 .canvas-wrapper {
   width: 100%;
   height: 50vh;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  border: 2px solid white;
 }
 
 .acidity-canvas {
@@ -57,13 +29,49 @@
   height: 100%;
 }
 
-.loading {
-  color: #fff;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+.acidity-title,
+.acidity-description {
+  color: var(--color-white);
+  text-align: center;
+  margin: 10px 0;
+}
 
+.acidity-title {
+  font-size: var(--font-size-title);
+}
+
+.acidity-description {
+  font-size: var(--font-size-description);
+  max-width: 800px;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  .acidity-title {
+    font-size: 2rem;
+  }
+
+  .acidity-description {
+    font-size: 1rem;
+  }
+
+  .canvas-wrapper {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .acidity-title {
+    font-size: 1.5rem;
+  }
+
+  .acidity-description {
+    font-size: 0.9rem;
+  }
+
+  .canvas-wrapper {
+    height: 50vh;
+  }
 }

@@ -1,18 +1,27 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
-import { MeshStandardMaterial, DoubleSide } from "three";
+import { MeshStandardMaterial, LoopRepeat } from "three";
+
 const Fish = (props) => {
   const group = useRef();
   const { nodes, animations } = useGLTF("models-3d/fish.glb");
   const { actions } = useAnimations(animations, group);
 
-  const PATH = useMemo(() => "/materials/fish/", []);
+  useEffect(() => {
+    if (actions && animations.length > 0) {
+      const action = actions[animations[0].name];
+      action.setLoop(LoopRepeat, Infinity);
+      action.clampWhenFinished = false; 
+      action.timeScale = 1.3;
+      action.play();
+    }
+  }, [actions, animations]);
 
+  const PATH = useMemo(() => "/materials/fish/", []);
   const fishTexture = useTexture({
-    map: PATH + "Basecolor_color.jpeg",
-    normalMap: PATH + "koifishnormal_(1).jpg",
+    map: PATH + "basecolorFish.jpg",
+    normalMap: PATH + "normalFIsh.jpg",
   });
 
   const fishMaterial = useMemo(() => {
@@ -21,32 +30,24 @@ const Fish = (props) => {
       normalMap: fishTexture.normalMap,
       metalness: 0.8,
       roughness: 1.8,
-      side: DoubleSide,
     });
   }, [fishTexture]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
-          <group name="root">
-            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
-              <group
-                name="koifish_0"
-                position={[-0.268, 0, 0]}
-                rotation={[Math.PI, 0, Math.PI]}
-              >
-                <mesh
-                  name="mesh_0"
-                  geometry={nodes.mesh_0.geometry}
-                  material={fishMaterial}
-                  morphTargetDictionary={nodes.mesh_0.morphTargetDictionary}
-                  morphTargetInfluences={nodes.mesh_0.morphTargetInfluences}
-                />
-              </group>
-            </group>
-          </group>
-        </group>
+    <group ref={group} {...props} dispose={null} >
+      <group name="Scene">
+        <mesh
+          name="Fish"
+          castShadow
+          receiveShadow
+          geometry={nodes.Fish.geometry}
+          material={fishMaterial}
+          morphTargetDictionary={nodes.Fish.morphTargetDictionary}
+          morphTargetInfluences={nodes.Fish.morphTargetInfluences}
+          position={[-0.268, 0, 0]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[2,2,2]}
+        />
       </group>
     </group>
   );
