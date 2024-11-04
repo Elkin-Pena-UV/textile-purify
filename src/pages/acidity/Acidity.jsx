@@ -35,7 +35,6 @@ const Acidity = () => {
               <FloorFish />
               <Fish />
               <LightFish />
-              <ControlsFish/>
               <ControlsFish />
               <Text
                 position={[-15, 3, -2]}
