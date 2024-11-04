@@ -6,6 +6,7 @@ import Header from "../../components/header/Header";
 import FloorFish from "../../components/floorFish/FloorFish";
 import LightFish from "../../components/ligths/LightFish";
 import ControlsFish from "../../components/controls/ControlsFish";
+import { Text } from "@react-three/drei";
 const Acidity = () => {
   const canvasRef = useRef(null);
 
@@ -35,6 +36,31 @@ const Acidity = () => {
               <Fish />
               <LightFish />
               <ControlsFish/>
+              <ControlsFish />
+              <Text
+                position={[-15, 3, -2]}
+                fontSize={1}
+                color="white"
+                anchorX="center"
+                anchorY="middle"
+                maxWidth={16}
+                textAlign="justify"
+              >
+                La industria textil es responsable de aproximadamente el 20% 
+                de la contaminación del agua a nivel mundial.
+              </Text>
+
+              <Text
+                position={[15, 3, -2]}
+                fontSize={1}
+                color="white"
+                anchorX="center"
+                anchorY="middle"
+                maxWidth={16}
+                textAlign="justify"
+              >
+                Tu estilo puede ser sostenible: elige moda que cuide nuestros recursos hídricos.
+              </Text>
             </Canvas>
           </>
         </div>
