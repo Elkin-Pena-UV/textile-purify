@@ -3,10 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import Fish from "../../components/Fish/Fish";
 import "./Acidity.css";
 import Header from "../../components/header/Header";
-import { OrbitControls } from "@react-three/drei";
 import FloorFish from "../../components/floorFish/FloorFish";
 import LightFish from "../../components/ligths/LightFish";
-
+import ControlsFish from "../../components/controls/ControlsFish";
 const Acidity = () => {
   const canvasRef = useRef(null);
 
@@ -32,10 +31,10 @@ const Acidity = () => {
         <div ref={canvasRef} className="canvas-wrapper">
           <>
             <Canvas shadows camera={{ position: [0, 3, 10] }}>
-              <OrbitControls />
               <FloorFish />
               <Fish />
               <LightFish />
+              <ControlsFish/>
             </Canvas>
           </>
         </div>
