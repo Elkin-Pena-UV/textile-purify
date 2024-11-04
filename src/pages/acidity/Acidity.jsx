@@ -1,12 +1,11 @@
-/* eslint-disable react/no-unknown-property */
-// Acidity.js
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Fish from "../../components/Fish/Fish";
-
 import "./Acidity.css";
 import Header from "../../components/header/Header";
 import { OrbitControls } from "@react-three/drei";
+import FloorFish from "../../components/floorFish/FloorFish";
+import LightFish from "../../components/ligths/LightFish";
 
 const Acidity = () => {
   const canvasRef = useRef(null);
@@ -31,11 +30,14 @@ const Acidity = () => {
         </p>
 
         <div ref={canvasRef} className="canvas-wrapper">
-          <Canvas className="acidity-canvas" camera={{ position: [0, 2, 10] }}>
-            <OrbitControls />
-            <ambientLight intensity={8.5} />
-            <Fish />
-          </Canvas>
+          <>
+            <Canvas shadows camera={{ position: [0, 3, 10] }}>
+              <OrbitControls />
+              <FloorFish />
+              <Fish />
+              <LightFish />
+            </Canvas>
+          </>
         </div>
       </div>
     </div>

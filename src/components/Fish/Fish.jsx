@@ -29,7 +29,7 @@ const Fish = (props) => {
       map: fishTexture.map,
       normalMap: fishTexture.normalMap,
       metalness: 0.8,
-      roughness: 1.8,
+      roughness: 1.0,
     });
   }, [fishTexture]);
 
@@ -39,14 +39,13 @@ const Fish = (props) => {
         <mesh
           name="Fish"
           castShadow
-          receiveShadow
+          receiveShadow={false}
           geometry={nodes.Fish.geometry}
           material={fishMaterial}
           morphTargetDictionary={nodes.Fish.morphTargetDictionary}
           morphTargetInfluences={nodes.Fish.morphTargetInfluences}
-          position={[-0.268, 0, 0]}
-          rotation={[Math.PI, 0, Math.PI]}
-          scale={[2,2,2]}
+          position={[-0.268, -1, 0]}
+          rotation={[Math.PI, 5, Math.PI]}
         />
       </group>
     </group>

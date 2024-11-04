@@ -6,10 +6,7 @@ import { Canvas } from "@react-three/fiber";
 import { getDocs, query, where } from "firebase/firestore";
 import UserDao from "../../daos/UserDao";
 import { OrbitControls, PositionalAudio } from "@react-three/drei";
-import Fish from "../../components/Fish/Fish";
-import ligthFish from "../../components/Fish/Fish";
 import Header from "../../components/header/Header";
-import LightFish from "../../components/ligths/LigthFish";
 import "./Home.css";
 const Home = () => {
   const { user, logout } = useAuthStore();
