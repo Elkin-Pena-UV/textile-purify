@@ -1,54 +1,112 @@
-header{
-    padding: 1rem;
-    background-color: #181818;
-    height: 80px;
+/* Styling for the main header */
+header {
+  padding: 1rem;
+  background-color: #181818;
+  height: 30px;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Vollkorn", serif;
+  font-weight: 700;
+}
+
+/* Navbar container styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+/* Menu toggle button (hamburger icon) */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  display: none; /* Hidden by default; shown in mobile view */
+  cursor: pointer;
+}
+
+/* Desktop view of navigation links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling for individual list items */
+.nav-links li {
+  display: inline-block;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+/* Anchor links styling */
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: large;
+  border-bottom: 5px solid transparent;
+}
+
+/* Logout button styling */
+.btnform {
+  background-color: #181818;
+  color: white;
+  border: none;
+  font-size: large;
+  border-bottom: 5px solid transparent;
+  font-family: "Vollkorn", serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Hover effect for logout button */
+.btnform:hover {
+  border-bottom: 5px solid #8c1cd1;
+}
+
+/* Hover effect for links */
+.nav-links li a:hover {
+  border-bottom: 5px solid #8c1cd1;
+}
+
+/* Responsive styling for mobile view */
+@media (max-width: 768px) {
+  /* Navigation links hidden by default on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column; /* Stack links vertically */
     width: 100%;
-    position: fixed;
-    z-index: 999;
-    opacity: 0.9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Vollkorn", serif;
-    font-weight: 700;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 20px;
-    cursor: pointer;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: large;
-    border-bottom: 5px solid transparent;
-}
-
-.btnform{
+    position: absolute;
+    top: 60px;
+    left: 0;
     background-color: #181818;
-    color: white;
-    border: none;
-    font-size: large;
-    border-bottom: 5px solid transparent;
-    font-family: "Vollkorn", serif;
-    font-weight: 700;
-    padding: 0%;
-    cursor: pointer;
-}
+    z-index: 998;
+  }
 
-.btnform:hover{
-    width: 100%;
-    border-bottom: 5px solid #8C1CD1;
-}
-nav a:hover{
-    border-bottom: 5px solid #8C1CD1;
+  /* Show navigation when .open class is added */
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Styling for list items in mobile menu */
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  /* Show menu-toggle button only on mobile */
+  .menu-toggle {
+    display: block;
+  }
+  
 }
