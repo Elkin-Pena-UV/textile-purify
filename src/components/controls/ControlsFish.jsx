@@ -1,7 +1,7 @@
 
 import { OrbitControls } from '@react-three/drei';
 
-const Controls = () => {
+const ControlsFish = () => {
 
 
     return(
@@ -17,4 +17,4 @@ const Controls = () => {
 
 }
 
-export default Controls;
+export default ControlsFish;
