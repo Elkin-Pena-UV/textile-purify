@@ -1,41 +1,23 @@
-/* .container-pollution{  
-    background: url(/images/backgroundPollution.jpg) no-repeat center center fixed;
-    padding: 0.5px;
-    text-align: center;
-    min-height: 120vh;
-} */
 .container-pollution{  
   background: url(/images/backgroundPollution.jpg) no-repeat center center fixed;
   background-size: cover;
   background-position: center;
-  min-height: 140vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  text-align: center;
   padding: 0px;
 }
-  
-  h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* Blanco */
-    margin-bottom: 15px;
-    font-family: "Vollkorn", serif;
-  }
-  
-
-  h1, p {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra negra para el texto */
-  }
 
   .text-container {
-    padding: 15px; /* Espaciado interno */
+    padding: 15px;
     font-size: 1.2rem;
     color: #deecff; 
     line-height: 1.5;
     max-width: 800px;
     margin: 0 auto;
-    font-family: "Poppins", sans-serif;
+    
     font-weight: 500;
     font-style: normal;
   }

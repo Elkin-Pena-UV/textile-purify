@@ -9,17 +9,29 @@ body,
 
 h1 {
   font-weight: 900;
-  font-size: 45px;
+  font-size: 2.5rem;
+  color: #ffffff; /* Blanco */
+  margin-bottom: 15px;
+  font-family: "Vollkorn", serif;
 }
 
 h2 {
   font-weight: 700;
   font-size: 23px;
+  font-family: "Poppins", sans-serif;
 }
 
 p {
+  color: #fff; 
+  line-height: 1.6;
   font-weight: 500;
   font-size: 21px;
+  font-family: "Poppins", sans-serif;
+}
+
+h1, h2, p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra negra para el texto */
+
 }
 
 body {
