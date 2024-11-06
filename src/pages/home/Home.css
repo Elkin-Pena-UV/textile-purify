@@ -1,3 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column; 
+  background: url(/images/backgroudHome.png) no-repeat center center fixed; 
+  background-size: cover;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+  box-sizing: border-box; 
+}
 .container-content {
   text-align: center; 
   padding: 20px; 
