@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { OrbitControls } from '@react-three/drei';
 
 const Controls = () => {
@@ -11,7 +10,7 @@ const Controls = () => {
         maxAzimuthAngle={Math.PI / 2}
         minPolarAngle={0}
         maxPolarAngle={Math.PI/2}
-        enableZoom={true}
+        enableZoom={false}
 
         />
     )
