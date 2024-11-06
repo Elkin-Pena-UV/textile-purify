@@ -5,13 +5,13 @@ import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import Pollution from "../pages/pollution/Pollution";
 import Acidity from "../pages/acidity/Acidity";
+import ScenaryPollution from "../pages/pollution/scenary/ScenaryPollution";
 const Router = createBrowserRouter([
   {
     path: "/",
     element: (
       <PublicRoute>
-        {" "}
-        <Login />{" "}
+        <Login />
       </PublicRoute>
     ),
   },
@@ -19,8 +19,7 @@ const Router = createBrowserRouter([
     path: "/home",
     element: (
       <ProtectedRoute>
-        {" "}
-        <Home />{" "}
+        <Home />
       </ProtectedRoute>
     ),
   },
@@ -28,8 +27,7 @@ const Router = createBrowserRouter([
     path: "/pollution",
     element: (
       <ProtectedRoute>
-        {" "}
-        <Pollution />{" "}
+        <Pollution />
       </ProtectedRoute>
     ),
   },
@@ -37,10 +35,17 @@ const Router = createBrowserRouter([
     path: "/acidity",
     element: (
       <ProtectedRoute>
-        {" "}
-        <Acidity />{" "}
+        <Acidity />
       </ProtectedRoute>
     ),
   },
+  {
+    path: "/scenary-pollution",
+    element: (
+      <ProtectedRoute>
+        <ScenaryPollution />
+      </ProtectedRoute>
+    ),
+  }
 ]);
 export default Router;

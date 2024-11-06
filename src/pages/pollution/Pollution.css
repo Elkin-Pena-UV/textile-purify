@@ -2,10 +2,11 @@
   background: url(/images/backgroundPollution.jpg) no-repeat center center fixed;
   background-size: cover;
   background-position: center;
-  min-height: 120vh;
+  min-height: 140vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; /* Center items horizontally */
   text-align: center;
   padding: 0px;
 }
@@ -20,4 +21,68 @@
     
     font-weight: 500;
     font-style: normal;
+  }
+
+  .button-continue {
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0em 2em;
+    border: mediumspringgreen solid 0.15em;
+    border-radius: 0.25em;
+    color: mediumspringgreen;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 300ms, color 300ms;
+    user-select: none;
+    margin: 0 auto; /* Center the button horizontally */
+  }
+  
+  .button-continue p {
+    z-index: 1;
+  }
+  
+  .button-continue:hover {
+    color: #212121;
+  }
+  
+  .button-continue:active {
+    border-color: teal;
+  }
+  
+  .button-continue::after, .button-continue::before {
+    content: "";
+    position: absolute;
+    width: 9em;
+    aspect-ratio: 1;
+    background: mediumspringgreen;
+    opacity: 50%;
+    border-radius: 50%;
+    transition: transform 500ms, background 300ms;
+  }
+  
+  .button-continue::before {
+    left: 0;
+    transform: translateX(-8em);
+  }
+  
+  .button-continue::after {
+    right: 0;
+    transform: translateX(8em);
+  }
+  
+  .button-continue:hover:before {
+    transform: translateX(-1em);
+  }
+  
+  .button-continue:hover:after {
+    transform: translateX(1em);
+  }
+  
+  .button-continue:active:before,
+  .button-continue:active:after {
+    background: teal;
   }

@@ -38,12 +38,9 @@ const Home = () => {
   const audioRef = useRef();
 
   return (
-    <>
+    
       <div className="container">
         <Header />
-        <Canvas camera={{ position: [0, 1, 8] }}>
-          <OrbitControls makeDefault />
-        </Canvas>
         <div className="container-content">
           <h1>Introducción a la Problemática del Agua</h1>
           <div className="team-description">
@@ -61,7 +58,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 export default Home;

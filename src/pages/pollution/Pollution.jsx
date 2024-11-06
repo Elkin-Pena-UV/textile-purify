@@ -6,6 +6,7 @@ import "./Pollution.css";
 import Floor from "../../components/floor/Floor";
 import LightBigShark from "../../components/ligths/LightBigShark";
 import Header from "../../components/header/Header";
+import { useNavigate } from "react-router-dom";
 
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
@@ -38,6 +39,11 @@ const SharkScene = () => {
 
 //Este componente es el que se encarga de mostrar la información de la contaminación del agua
 const Pollution = () => {
+  const navigate = useNavigate();
+
+  const goToScenaryPollution = () => {
+    navigate("/scenary-pollution");
+  };
   return (
     <div className="container-header">
       <Header />
@@ -53,6 +59,10 @@ const Pollution = () => {
             este problema al liberar contaminantes tóxicos que afectan la
             calidad del agua y dañan los ecosistemas.
           </p>
+
+          <button class="button-continue" onClick={goToScenaryPollution}>
+            <p>Descubre más</p>
+          </button>
         </div>
         <div style={{ width: "100%", height: "500px", marginTop: "20px" }}>
           <SharkScene />
