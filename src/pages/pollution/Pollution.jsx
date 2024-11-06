@@ -7,7 +7,7 @@ import Floor from "../../components/floor/Floor";
 import LightBigShark from "../../components/ligths/LightBigShark";
 import Header from "../../components/header/Header";
 import { useNavigate } from "react-router-dom";
-
+import Controls from "../../components/controls/Controls";
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
   return (
@@ -17,7 +17,7 @@ const SharkScene = () => {
       fog={{ color: "#0b3d91", near: 5, far: 20 }}
     >
       <LightBigShark />
-      <OrbitControls />
+      <Controls />
       <BigShark />
       <Floor />
       <Text

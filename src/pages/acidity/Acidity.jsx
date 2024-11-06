@@ -5,7 +5,7 @@ import "./Acidity.css";
 import Header from "../../components/header/Header";
 import FloorFish from "../../components/floorFish/FloorFish";
 import LightFish from "../../components/ligths/LightFish";
-import ControlsFish from "../../components/controls/ControlsFish";
+import Controls from "../../components/controls/Controls";
 import { Text } from "@react-three/drei";
 const Acidity = () => {
   const canvasRef = useRef(null);
@@ -35,7 +35,7 @@ const Acidity = () => {
               <FloorFish />
               <Fish />
               <LightFish />
-              <ControlsFish />
+              <Controls />
               <Text
                 position={[-15, 3, -2]}
                 fontSize={1}
