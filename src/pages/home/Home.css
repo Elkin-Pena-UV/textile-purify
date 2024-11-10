@@ -22,7 +22,12 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     text-align: justify;
   }
-  .team-description p{
+
+.team-description p {
+  color:#000000
+}
+.team-description p{
     color: #192c80;
   }
+
   
