@@ -5,15 +5,15 @@ import { MeshStandardMaterial, LoopRepeat } from "three";
 
 const Fish = (props) => {
   const group = useRef();
-  const { nodes, animations } = useGLTF("models-3d/fish.glb");
+  const { nodes, animations } = useGLTF("models-3d/fish.glb", true);
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
     if (actions && animations.length > 0) {
-      const action = actions[animations[0].name];
+      const action = actions["KeyAction"];
       action.setLoop(LoopRepeat, Infinity);
-      action.clampWhenFinished = false; 
-      action.timeScale = 1.3;
+      action.clampWhenFinished = true;
+      action.timeScale = 2.0; 
       action.play();
     }
   }, [actions, animations]);
@@ -34,18 +34,18 @@ const Fish = (props) => {
   }, [fishTexture]);
 
   return (
-    <group ref={group} {...props} dispose={null} >
+    <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <mesh
-          name="Fish"
+          name="fish"
           castShadow
-          receiveShadow={false}
-          geometry={nodes.Fish.geometry}
+          receiveShadow
+          geometry={nodes.fish.geometry}
           material={fishMaterial}
-          morphTargetDictionary={nodes.Fish.morphTargetDictionary}
-          morphTargetInfluences={nodes.Fish.morphTargetInfluences}
-          position={[-0.268, -1, 0]}
-          rotation={[Math.PI, 5, Math.PI]}
+          morphTargetDictionary={nodes.fish.morphTargetDictionary}
+          morphTargetInfluences={nodes.fish.morphTargetInfluences}
+          position={[-1, -1, 0]}
+          rotation={[Math.PI, 1.5, Math.PI]}
         />
       </group>
     </group>
