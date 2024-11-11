@@ -1,77 +1,87 @@
-:root {
-  --color-white: #ffffff;
-  --color-dark: #000000;
-  --font-size-title: 2.5rem;
-  --font-size-description: 1.2rem;
-  --padding: 20px;
-}
-
 .acidity-container {
   background: url("/images/backgroundAcidity.jpg") center/cover no-repeat;
-  min-height: 110vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: var(--padding);
-}
-
-.canvas-wrapper {
-  width: 100%;
-  height: 50vh;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid white;
-}
-
-.acidity-canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.acidity-title,
-.acidity-description {
-  color: var(--color-white);
-  text-align: center;
-  margin: 10px 0;
+  padding: 30px;
 }
 
 .acidity-title {
-  font-size: var(--font-size-title);
+  font-size: 2.5rem;
+  color: #38a3a5;
+  text-align: center;
+  margin: 40px 0 20px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.acidity-introduction {
+  padding: 24px;
+  border-radius: 14px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 1800px;
+  
+}
+
+.Introduction {
+  font-size: 2rem;
+  color: #c7f9cc;
+  margin-bottom: 10px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
 }
 
 .acidity-description {
-  font-size: var(--font-size-description);
-  max-width: 800px;
+  font-size: 1.2rem;
+  color: #ffffff;
   text-align: justify;
-  margin-bottom: 30px;
+  line-height: 1.8;
+  padding: 14px;
 }
 
-/* Diseño responsivo */
-@media (max-width: 768px) {
-  .acidity-title {
-    font-size: 2rem;
-  }
-
-  .acidity-description {
-    font-size: 1rem;
-  }
-
-  .canvas-wrapper {
-    height: 60vh;
-  }
+.Fish,
+.River-Scene {
+  width: 90%;
+  height: 60vh;
+  margin: 40px auto;
+  overflow: hidden;
+  border: 2px solid #57cc99;
+  position: relative;
+  padding: 20px;
 }
 
-@media (max-width: 480px) {
-  .acidity-title {
-    font-size: 1.5rem;
-  }
+/* ==== Título de la Sección de la Escena ==== */
+.Scene-title {
+  font-size: 2rem;
+  color: #c7f9cc;
+  text-align: left;
+  margin: 20px 0 20px; /* Espacio superior e inferior */
+  font-weight: bold;
+  letter-spacing: 2px;
+}
 
-  .acidity-description {
-    font-size: 0.9rem;
-  }
+/* ==== Sección de Explicación de la Acidificación ==== */
+.acidity-explanation {
+  padding: 24px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 1800px;
+  border-radius: 14px;
+}
 
-  .canvas-wrapper {
-    height: 50vh;
-  }
+.acidity-explanation h2 {
+  font-size: 2rem;
+  color: #c7f9cc;
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.acidity-explanation p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.6;
+  text-align: justify;
 }
