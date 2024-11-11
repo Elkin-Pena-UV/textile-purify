@@ -106,12 +106,12 @@
 }
 
 .container-button {
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
 /* ========= scroll button styles ========= */
 .scrolldown {
-  --color: rgb(141, 255, 211);
+  --color: rgb(255, 255, 255);
   --sizeX: 30px;
   --sizeY: 50px;
   position: relative;
