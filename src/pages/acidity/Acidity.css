@@ -1,38 +1,52 @@
+/* Main container for the entire page */
 .acidity-container {
-  background: url("/images/backgroundAcidity.jpg") center/cover no-repeat;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  align-items: center; 
+  width: 100%;
+  background: url("/images/backgroundAcidity.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  gap: 2rem;
+  overflow-x: hidden; 
 }
 
+/* Main title of the section */
 .acidity-title {
   font-size: 2.5rem;
   color: #38a3a5;
-  text-align: center;
-  margin: 40px 0 20px;
+  margin: 2.5rem 0 1rem;
   font-weight: bold;
   letter-spacing: 1.5px;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  align-self: center; 
 }
 
+/* Introduction section */
 .acidity-introduction {
-  padding: 24px;
+  padding: 1.5rem;
   border-radius: 14px;
-  margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 1800px;
-  
+  width: auto; 
+  max-width: 1600px;
+  margin-top: 2.5rem;
+  box-sizing: border-box;
+  align-self: center; 
 }
 
-.Introduction {
+/* Title inside the introduction */
+.acidity-introduction-title {
   font-size: 2rem;
   color: #c7f9cc;
   margin-bottom: 10px;
   font-weight: normal;
   letter-spacing: 1.5px;
+  text-align: left;
 }
 
+/* Description inside the introduction */
 .acidity-description {
   font-size: 1.2rem;
   color: #ffffff;
@@ -41,36 +55,48 @@
   padding: 14px;
 }
 
+/* Sections for Fish and River scenes */
 .Fish,
 .River-Scene {
-  width: 90%;
-  height: 60vh;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: 60svh; 
   margin: 40px auto;
   overflow: hidden;
   border: 2px solid #57cc99;
   position: relative;
-  padding: 20px;
+  padding: 2px;
 }
 
-/* ==== Título de la Sección de la Escena ==== */
+/* Scene title */
 .Scene-title {
   font-size: 2rem;
+  padding-top: 5px;
+  padding-bottom: 4px;
   color: #c7f9cc;
-  text-align: left;
-  margin: 20px 0 20px; /* Espacio superior e inferior */
+  margin: 20px 0;
   font-weight: bold;
   letter-spacing: 2px;
+  align-self: flex-start;
+  margin-top: auto; 
 }
 
-/* ==== Sección de Explicación de la Acidificación ==== */
+/* Explanation section about water acidity */
 .acidity-explanation {
-  padding: 24px;
-  margin-top: 40px;
+  padding: 2rem;
+  margin-top: 2.5rem;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 1800px;
+  max-width: 1600px;
+  width: 90%; 
   border-radius: 14px;
+  align-self: center;   
+  margin-top: auto; 
+  margin-bottom: 0; 
+  box-sizing: border-box;
 }
 
+/* Title inside the explanation section */
 .acidity-explanation h2 {
   font-size: 2rem;
   color: #c7f9cc;
@@ -79,9 +105,62 @@
   font-weight: bold;
 }
 
+/* Paragraphs inside the explanation section */
 .acidity-explanation p {
   font-size: 1.2rem;
   color: #ffffff;
   line-height: 1.6;
   text-align: justify;
+}
+
+/* Media Queries for responsiveness */
+
+/* For screens smaller than 1024px */
+@media (max-width: 1024px) {
+  .acidity-introduction,
+  .acidity-explanation {
+    width: 95%; 
+  }
+
+  .acidity-title {
+    font-size: 2rem; 
+  }
+
+  .acidity-description {
+    font-size: 1rem; 
+  }
+
+  .Scene-title {
+    font-size: 1.5rem; 
+  }
+
+  .Fish,
+  .River-Scene {
+    height: 50svh;
+  }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .acidity-introduction,
+  .acidity-explanation {
+    width: 100%; 
+  }
+
+  .acidity-title {
+    font-size: 1.8rem; 
+  }
+
+  .acidity-description {
+    font-size: 1rem; 
+  }
+
+  .Scene-title {
+    font-size: 1.3rem; 
+  }
+
+  .Fish,
+  .River-Scene {
+    height: 40svh; 
+  }
 }
