@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import BigShark from "../../components/big-shark/BigShark";
-import { OrbitControls, Text } from "@react-three/drei";
-import React from "react";
+import { KeyboardControls, OrbitControls, Text } from "@react-three/drei";
+import React, { useMemo } from "react";
 import "./Pollution.css";
 import Floor from "../../components/floor/Floor";
 import LightBigShark from "../../components/ligths/LightBigShark";
@@ -44,12 +44,22 @@ const Pollution = () => {
   const goToScenaryPollution = () => {
     navigate("/scenary-pollution");
   };
+
+  const map = useMemo(
+    () => [
+      { name: "forward", keys: ["ArrowUp", "KeyW"] },
+      { name: "back", keys: ["ArrowDown", "KeyS"] },
+      { name: "left", keys: ["ArrowLeft", "KeyA"] },
+      { name: "right", keys: ["ArrowRight", "KeyD"] },
+    ],
+    []
+  );
   return (
     <div className="container-header">
       <Header />
-      <div className="container-pollution">
-        <h1>Contaminación del Agua</h1>
-        <div className="text-container">
+      <section className="container-pollution">
+        <h1 className="container-pollution-title">Contaminación del Agua</h1>
+        <section className="text-container">
           <p>
             La contaminación del agua es uno de los mayores problemas
             ambientales del mundo actual. Cada día, millones de toneladas de
@@ -59,15 +69,24 @@ const Pollution = () => {
             este problema al liberar contaminantes tóxicos que afectan la
             calidad del agua y dañan los ecosistemas.
           </p>
-
+        </section>
+        <div className="container-button">
           <button class="button-continue" onClick={goToScenaryPollution}>
             <p>Descubre más</p>
           </button>
         </div>
-        <div style={{ width: "100%", height: "500px", marginTop: "20px" }}>
-          <SharkScene />
+        <div className="scrolldown">
+          <div className="chevrons">
+            <div className="chevrondown"></div>
+            <div className="chevrondown"></div>
+          </div>
         </div>
-      </div>
+        <div style={{ width: "100%", height: "450px", marginTop: "130px" }}>
+          <KeyboardControls map={map}>
+            <SharkScene />
+          </KeyboardControls>
+        </div>
+      </section>
     </div>
   );
 };

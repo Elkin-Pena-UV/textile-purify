@@ -1,22 +1,95 @@
-import { useAnimations, useGLTF } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import { useAnimations, useGLTF, useKeyboardControls } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import * as THREE from "three";
 
 const BigShark = (props) => {
-  const group = useRef();
+  const sharkRef = useRef();
+
   const { nodes, materials, animations } = useGLTF("models-3d/big-shark.glb");
-  const { actions } = useAnimations(animations, group);
-  console.log(actions);
-  useEffect(()=> {
-    if(actions){
-        console.log(Object.keys(actions));
-        const action = actions[Object.keys(actions)[0]];
-        if(action){
-            action.play();
-        }
+
+  const { actions } = useAnimations(animations, sharkRef);
+
+  useEffect(() => {
+    if (actions) {
+      console.log(Object.keys(actions));
+      const action = actions[Object.keys(actions)[0]];
+      if (action) {
+        action.play();
+      }
     }
-  },[actions]);
+  }, [actions]);
+
+  const [sub, get] = useKeyboardControls();
+
+  
+  
+  useEffect(() => {
+    return sub(
+      (state) => state.forward,
+      (state) => state.back
+    );
+  });
+
+  useFrame((state, delta) => {
+    const { forward, back, left, right } = get();
+
+    const rotationSpeed = 0.18; // Controla la suavidad de la rotación
+  
+    // Creamos el cuaternión objetivo según la dirección
+    let targetQuaternion = new THREE.Quaternion();
+
+    if (forward && left) {
+        sharkRef.current.position.z -= 6 * delta;
+        sharkRef.current.position.x -= 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, -(3 * Math.PI) / 4, 0));
+        
+    } else if (forward && right) {
+        sharkRef.current.position.z -= 6 * delta;
+        sharkRef.current.position.x += 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, (3 * Math.PI) / 4, 0));
+    } else if (back && left) {
+        sharkRef.current.position.z += 6 * delta;
+        sharkRef.current.position.x -= 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, -Math.PI / 4, 0));
+    } else if (back && right) {
+        sharkRef.current.position.z += 6 * delta;
+        sharkRef.current.position.x += 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, Math.PI / 4, 0));
+    } else if (forward) {
+        sharkRef.current.position.z -= 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, Math.PI, 0));
+    } else if (back) {
+        sharkRef.current.position.z += 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, 0, 0));
+    } else if (left) {
+        sharkRef.current.position.x -= 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, -Math.PI / 2, 0));
+    } else if (right) {
+        sharkRef.current.position.x += 6 * delta;
+        targetQuaternion.setFromEuler(new THREE.Euler(0, Math.PI / 2, 0));
+    }
+
+    // Interpolación suave con `slerp` hacia la rotación objetivo
+    sharkRef.current.quaternion.slerp(targetQuaternion, rotationSpeed);
+  
+    get().back;
+  });
+
+  const navigate = useNavigate();
+
+  const goToScenaryPollution = () => {
+    navigate("/scenary-pollution");
+  };
   return (
-     <group ref={group} {...props} dispose={null} castShadow>
+    <group
+      ref={sharkRef}
+      {...props}
+      dispose={null}
+      castShadow
+      onClick={goToScenaryPollution}
+    >
       <group name="Scene">
         <group
           name="Sketchfab_model"
@@ -96,7 +169,12 @@ const BigShark = (props) => {
               />
               <primitive object={nodes.Armature_rootJoint} />
             </group>
-            <group name="Hemi" position={[0.001, -0.866, 0.383]} castShadow receiveShadow>
+            <group
+              name="Hemi"
+              position={[0.001, -0.866, 0.383]}
+              castShadow
+              receiveShadow
+            >
               <group name="Hemi001" />
             </group>
             <group
