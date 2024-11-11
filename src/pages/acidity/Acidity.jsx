@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Fish from "../../components/Fish/Fish";
 import "./Acidity.css";
@@ -6,20 +5,22 @@ import Header from "../../components/header/Header";
 import FloorFish from "../../components/floorFish/FloorFish";
 import LightFish from "../../components/ligths/LightFish";
 import Controls from "../../components/controls/Controls";
-import { Text } from "@react-three/drei";
+import { Float, Html, Text } from "@react-three/drei";
 import River from "../../components/river/River";
+import Stading from "../../components/stading/Stading";
 
 const Acidity = () => {
   return (
-    <div className="container-header">
-      <Header />
+    <>
+      <header>
+        <Header />
+      </header>
 
-      <section className="acidity-container">
+      <main className="acidity-container">
         <h1 className="acidity-title">Acidificación del Agua</h1>
 
-        {/* Introduction  */}
         <section className="acidity-introduction">
-          <h2 className="Introduction"> Introducción</h2>
+          <h2 className="acidity-introduction-title">Introducción</h2>
           <p className="acidity-description">
             La acidez del agua, medida por su pH, es un factor crucial que
             influye en la vida de los organismos acuáticos y en el equilibrio de
@@ -35,56 +36,64 @@ const Acidity = () => {
           </p>
         </section>
 
-        {/*3D fish scene section*/}
         <section className="Fish">
-          <Canvas shadows camera={{ position: [0, 5, 15] }}>
+          <Canvas shadows camera={{ position: [0, 2, 22] }}>
             <FloorFish />
             <Fish />
             <LightFish />
             <Controls />
-
-            <Text
-              position={[-15, 3, -2]}
-              fontSize={1}
-              color="white"
-              anchorX="center"
-              anchorY="middle"
-              maxWidth={16}
-              textAlign="justify"
+            <Html
+              position={[-9, 6, 5]}
+              transform="screen"
+              rotation={[0, 0, 0]}
+              occlude
             >
-              La industria textil es responsable de aproximadamente el 20% de la
-              contaminación del agua a nivel mundial.
-            </Text>
+              <p
+                style={{
+                  color: "white",
+                  fontSize: "2rem",
+                  textAlign: "justify",
+                  maxWidth: "none",
+                  width: "70%",
+                }}
+              >
+                La industria textil es responsable de aproximadamente el 20% de
+                la contaminación del agua a nivel mundial.
+              </p>
+            </Html>
 
-            <Text
-              position={[15, 3, -2]}
-              fontSize={1}
-              color="white"
-              anchorX="center"
-              anchorY="middle"
-              maxWidth={16}
-              textAlign="justify"
+            <Html
+              position={[26, 6, 5]}
+              transform="screen"
+              rotation={[0, 0, 0]}
+              occlude
             >
-              Tu estilo puede ser sostenible: elige moda que cuide nuestros
-              recursos hídricos.
-            </Text>
+              <p
+                style={{
+                  color: "white",
+                  fontSize: "2rem",
+                  textAlign: "justify",
+                  maxWidth: "none",
+                  width: "70%",
+                }}
+              >
+                La industria textil es responsable de aproximadamente el 20% de
+                la contaminación del agua a nivel mundial.
+              </p>
+            </Html>
           </Canvas>
         </section>
 
-        {/* 3D river scene section */}
-        {/* Título de la sección del río */}
         <h2 className="Scene-title">Puesta en Escena</h2>
-
-        {/* Contenedor de la escena en 3D */}
         <section className="River-Scene">
-          <Canvas camera={{ position: [0, 5, 15] }}>
+          <Canvas camera={{ position: [0, 5, 12] }}>
             <River />
-            <ambientLight intensity={1.5} />
+            <directionalLight position={[0, 10, 0]} intensity={1} castShadow />
+            <Stading />
             <Controls />
           </Canvas>
         </section>
 
-        {/* What is water acidification?*/}
         <section className="acidity-explanation">
           <h2>¿Qué es la acidificación?</h2>
           <p>
@@ -96,8 +105,8 @@ const Acidity = () => {
             vida acuática y alterar los ecosistemas acuáticos.
           </p>
         </section>
-      </section>
-    </div>
+      </main>
+    </>
   );
 };
 

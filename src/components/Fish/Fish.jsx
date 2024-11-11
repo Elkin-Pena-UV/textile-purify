@@ -33,6 +33,9 @@ const Fish = (props) => {
     });
   }, [fishTexture]);
 
+  const handleFish = () => {
+    alert("Detrás de cada prenda hay un impacto: elige marcas que respeten el agua y el medio ambiente.");
+  }
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -46,6 +49,7 @@ const Fish = (props) => {
           morphTargetInfluences={nodes.fish.morphTargetInfluences}
           position={[-1, -1, 0]}
           rotation={[Math.PI, 1.5, Math.PI]}
+          onClick={handleFish}
         />
       </group>
     </group>
