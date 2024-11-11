@@ -42,8 +42,13 @@ const Pollution = () => {
   const navigate = useNavigate();
 
   const goToScenaryPollution = () => {
-    navigate("/scenary-pollution");
+    navigate("#scene-shark");
   };
+
+  const handleScroll = () => {
+    const element = document.getElementById("scene-shark");
+    element.scrollIntoView({ behavior: "smooth" });
+  }
 
   const map = useMemo(
     () => [
@@ -71,7 +76,7 @@ const Pollution = () => {
           </p>
         </section>
         <div className="container-button">
-          <button class="button-continue" onClick={goToScenaryPollution}>
+          <button class="button-continue"  onClick={handleScroll}>
             <p>Descubre más</p>
           </button>
         </div>
@@ -81,7 +86,7 @@ const Pollution = () => {
             <div className="chevrondown"></div>
           </div>
         </div>
-        <div style={{ width: "100%", height: "450px", marginTop: "130px" }}>
+        <div id="scene-shark" style={{ width: "100%", height: "450px", marginTop: "130px" }}>
           <KeyboardControls map={map}>
             <SharkScene />
           </KeyboardControls>
