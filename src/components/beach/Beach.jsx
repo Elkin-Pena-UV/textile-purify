@@ -4,7 +4,7 @@ const Beach = (props) => {
   const { nodes, materials } = useGLTF("models-3d/beach.glb");
   return (
     <group {...props} dispose={null}>
-      <group name="Scene">
+      <group name="Scene" rotation={[-Math.PI / -0.2, -0.4, 9.43]}>
         <group
           name="Plane"
           position={[1.571, 0.13, -2.296]}
