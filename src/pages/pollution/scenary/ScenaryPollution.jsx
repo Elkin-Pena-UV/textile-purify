@@ -3,6 +3,7 @@ import Beach from "../../../components/beach/Beach";
 import { Html, OrbitControls } from "@react-three/drei";
 import LightBeach from "../../../components/ligths/LightBeach";
 import { useNavigate } from "react-router-dom";
+import StadingNight from "../../../components/stading/StadingNight";
 
 
 const BeachScenary = () => {
@@ -30,6 +31,7 @@ const BeachScenary = () => {
       <OrbitControls />
       <ambientLight intensity={0.5} />
       <LightBeach />
+      <StadingNight />
       <Beach />
     </Canvas>
   );
