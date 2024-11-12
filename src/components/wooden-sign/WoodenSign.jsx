@@ -1,12 +1,12 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 
-const WoodenSign = () => {
+const WoodenSign = (props) => {
   const signRef = useRef();
-  const { nodes, materials } = useGLTF("/wooden-sign.glb");
+  const { nodes, materials } = useGLTF("models-3d/wooden-sign.glb");
   return (
     <group {...props} dispose={null} ref={signRef}>
-      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.714}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.714} position={[5,-1.2,-10]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
             castShadow

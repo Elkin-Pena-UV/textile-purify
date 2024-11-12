@@ -1,16 +1,32 @@
 import { Canvas } from "@react-three/fiber";
 import Beach from "../../../components/beach/Beach";
-import { OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import LightBeach from "../../../components/ligths/LightBeach";
-import Controls from "../../../components/controls/Controls";
+import { useNavigate } from "react-router-dom";
 
 
 const BeachScenary = () => {
+  const navigate = useNavigate();
+
+  const goToScenaryShark = () => {
+    navigate("/pollution");
+  };
   return (
     <Canvas
       shadows
-      camera={{ position: [-1,0.68,-2.5], fov: 40}}
+      camera={{ position: [-1,1.5,-2.5], fov: 50}}
     >
+      <Html
+      center
+      distanceFactor={0.9}
+      transform
+      position={[0,1,0]}
+      rotation={[-Math.PI / -0.2, -0.4, 9.43]} >
+        
+        <button class="button-continue" onClick={goToScenaryShark}>
+            <p>Volver</p>
+          </button>
+      </Html>
       <OrbitControls />
       <ambientLight intensity={0.5} />
       <LightBeach />

@@ -77,18 +77,12 @@ const BigShark = (props) => {
     get().back;
   });
 
-  const navigate = useNavigate();
-
-  const goToScenaryPollution = () => {
-    navigate("/scenary-pollution");
-  };
   return (
     <group
       ref={sharkRef}
       {...props}
       dispose={null}
       castShadow
-      onClick={goToScenaryPollution}
     >
       <group name="Scene">
         <group
