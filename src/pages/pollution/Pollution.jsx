@@ -1,15 +1,38 @@
 import { Canvas } from "@react-three/fiber";
 import BigShark from "../../components/big-shark/BigShark";
-import { KeyboardControls, OrbitControls, Text } from "@react-three/drei";
-import React, { useMemo } from "react";
+import { KeyboardControls, Text } from "@react-three/drei";
+import React, { useMemo, useState } from "react";
 import "./Pollution.css";
 import Floor from "../../components/floor/Floor";
 import LightBigShark from "../../components/ligths/LightBigShark";
 import Header from "../../components/header/Header";
-import { useNavigate } from "react-router-dom";
 import Controls from "../../components/controls/Controls";
+import WoodenSign from "../../components/wooden-sign/WoodenSign";
+import PileOfCloths from "../../components/pile-of-cloths/PileOfCloths";
+
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
+  const [isClicked, setIsClicked] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+
+  const texts = [
+    "¡Hola! ¿Como estás?",
+    "Sabias que la industria textil utiliza alrededor de 8,000 sustancias químicas",
+    "Muchas de las cuales terminan en los ríos y océanos sin un tratamiento adecuado",
+    "Esto afecta la vida acuática y la salud humana",
+    "¡Descubre más sobre la contaminación del agua!",
+    "¡Presiona WASD o las flechas para mover al tiburón!",
+  ];
+
+  const handleSignClick = () => {
+    if (!isClicked) {
+      setIsClicked(true);
+    } else if (clickCount < texts.length - 1) {
+      setClickCount((prevCount) => prevCount + 1);
+    } else {
+      setClickCount(-1);
+    }
+  };
   return (
     <Canvas
       shadows
@@ -19,6 +42,8 @@ const SharkScene = () => {
       <LightBigShark />
       <Controls />
       <BigShark />
+      <WoodenSign onClick={handleSignClick} />
+      <PileOfCloths />
       <Floor />
       <Text
         position={[0, 2, 0]} // Posición del texto en el canvas
@@ -33,22 +58,27 @@ const SharkScene = () => {
         Actualmente, hay más de 5 billones de fragmentos de plástico en el
         océano.
       </Text>
+      {isClicked && (
+            <Text
+              position={[5, 3, -10]}
+              color="Black"
+              fontSize={0.5}
+              outlineWidth={0.9}
+              outlineColor="White"
+            >
+              {texts[clickCount]}
+            </Text>
+          )}
     </Canvas>
   );
 };
 
 //Este componente es el que se encarga de mostrar la información de la contaminación del agua
 const Pollution = () => {
-  const navigate = useNavigate();
-
-  const goToScenaryPollution = () => {
-    navigate("#scene-shark");
-  };
-
   const handleScroll = () => {
     const element = document.getElementById("scene-shark");
     element.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
   const map = useMemo(
     () => [
@@ -76,7 +106,7 @@ const Pollution = () => {
           </p>
         </section>
         <div className="container-button">
-          <button class="button-continue"  onClick={handleScroll}>
+          <button class="button-continue" onClick={handleScroll}>
             <p>Descubre más</p>
           </button>
         </div>
@@ -86,11 +116,15 @@ const Pollution = () => {
             <div className="chevrondown"></div>
           </div>
         </div>
-        <div id="scene-shark" style={{ width: "100%", height: "450px", marginTop: "130px" }}>
+        <div
+          id="scene-shark"
+          style={{ width: "100%", height: "450px", marginTop: "130px" }}
+        >
           <KeyboardControls map={map}>
             <SharkScene />
           </KeyboardControls>
         </div>
+        
       </section>
     </div>
   );
