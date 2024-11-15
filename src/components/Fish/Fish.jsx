@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unknown-property */
-import { useRef, useMemo, useEffect } from "react";
+import React, { useRef, useMemo, useEffect, Suspense } from "react";
 import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
 import { MeshStandardMaterial, LoopRepeat } from "three";
 
-const Fish = (props) => {
+const Fish = React.memo((props) => {
   const group = useRef();
   const { nodes, animations } = useGLTF("models-3d/fish.glb", true);
   const { actions } = useAnimations(animations, group);
@@ -13,29 +13,32 @@ const Fish = (props) => {
       const action = actions["KeyAction"];
       action.setLoop(LoopRepeat, Infinity);
       action.clampWhenFinished = true;
-      action.timeScale = 2.0; 
+      action.timeScale = 2.0;
       action.play();
     }
+    return () => {
+      actions?.["KeyAction"]?.stop();
+    };
   }, [actions, animations]);
 
-  const PATH = useMemo(() => "/materials/fish/", []);
-  const fishTexture = useTexture({
-    map: PATH + "basecolorFish.jpg",
-    normalMap: PATH + "normalFIsh.jpg",
-  });
+  const fishTexture = useTexture("/materials/fish/basecolorFish.jpg");
+  const normalMap = useTexture("/materials/fish/normalFIsh.jpg");
 
   const fishMaterial = useMemo(() => {
     return new MeshStandardMaterial({
-      map: fishTexture.map,
-      normalMap: fishTexture.normalMap,
+      map: fishTexture,
+      normalMap: normalMap,
       metalness: 0.8,
       roughness: 1.0,
     });
-  }, [fishTexture]);
+  }, [fishTexture, normalMap]);
 
   const handleFish = () => {
-    alert("Detrás de cada prenda hay un impacto: elige marcas que respeten el agua y el medio ambiente.");
-  }
+    alert(
+      "Detrás de cada prenda hay un impacto: elige marcas que respeten el agua y el medio ambiente."
+    );
+  };
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -54,6 +57,10 @@ const Fish = (props) => {
       </group>
     </group>
   );
-};
+});
 
-export default Fish;
+export default (props) => (
+  <Suspense >
+    <Fish {...props} />
+  </Suspense>
+);
