@@ -1,5 +1,4 @@
 import { Cloud, Environment } from "@react-three/drei";
-import Rain from "./Rain";
 
 const Stading = () => {
   const cloudPosition = [0, 8, 0];
@@ -26,7 +25,6 @@ const Stading = () => {
         background={true}
       />
 
-      <Rain cloudPosition={cloudPosition} rainCount={rainCount} />
     </>
   );
 };
