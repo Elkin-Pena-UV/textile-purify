@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import "./Acidity.css";
-import Fish from "../../components/fish/Fish";
+import Fish from "../../components/Fish/Fish";
 import FloorFish from "../../components/floorFish/FloorFish";
 import LightFish from "../../components/ligths/LightFish";
 import Controls from "../../components/controls/Controls";
