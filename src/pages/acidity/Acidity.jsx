@@ -1,27 +1,39 @@
 import { Canvas } from "@react-three/fiber";
 import "./Acidity.css";
-import { lazy, Suspense } from "react";
-const Fish = lazy(() => import("../../components/Fish/Fish"));
-const FloorFish = lazy(() => import("../../components/floorFish/FloorFish"));
-const LightFish = lazy(() => import("../../components/ligths/LightFish"));
-const Controls = lazy(() => import("../../components/controls/Controls"));
-const River = lazy(() => import("../../components/river/River"));
-const Stading = lazy(() => import("../../components/stading/Stading"));
+import Fish from "../../components/fish/Fish";
+import FloorFish from "../../components/floorFish/FloorFish";
+import LightFish from "../../components/ligths/LightFish";
+import Controls from "../../components/controls/Controls";
+import River from "../../components/river/River";
+import Stading from "../../components/stading/Stading";
 import Header from "../../components/header/Header";
-import { Html } from "@react-three/drei";
+import { Html, KeyboardControls } from "@react-three/drei";
+import Information from "./information/Information";
+import { useMemo } from "react";
+import { Physics } from "@react-three/rapier";
+import { useRef } from "react";
+import { Cloud } from "@react-three/drei";
 
 const Acidity = () => {
-  return (
-    <>
-      <header>
-        <Header />
-      </header>
 
-      <main className="acidity-container">
+  const map = useMemo(
+    () => [
+      { name: "forward", keys: ["ArrowUp", "KeyW"] },
+      { name: "back", keys: ["ArrowDown", "KeyS"] },
+      { name: "left", keys: ["ArrowLeft", "KeyA"] },
+      { name: "right", keys: ["ArrowRight", "KeyD"] },
+    ],
+    []
+  );
+
+  return (
+    <section className="container-acidity">
+      <Header />
+      <main className="acidity-main">
         <h1 className="acidity-title">Acidificación del Agua</h1>
 
         <section className="acidity-introduction">
-          <h2 className="acidity-introduction-title">Introducción</h2>
+          <h2 className="acidity-subtitle">Introducción</h2>
           <p className="acidity-description">
             La acidez del agua, medida por su pH, es un factor crucial que
             influye en la vida de los organismos acuáticos y en el equilibrio de
@@ -36,73 +48,6 @@ const Acidity = () => {
             de los ecosistemas acuáticos.
           </p>
         </section>
-
-        <section className="Fish">
-          <Suspense>
-            <Canvas shadows camera={{ position: [0, 2, 22] }}>
-              <FloorFish />
-              <Fish />
-              <LightFish />
-              <Controls />
-              <Html
-                position={[-9, 6, 5]}
-                transform="screen"
-                rotation={[0, 0, 0]}
-                occlude
-              >
-                <p
-                  style={{
-                    color: "white",
-                    fontSize: "2rem",
-                    textAlign: "justify",
-                    maxWidth: "none",
-                    width: "70%",
-                  }}
-                >
-                  La industria textil es responsable de aproximadamente el 20%
-                  de la contaminación del agua a nivel mundial.
-                </p>
-              </Html>
-
-              <Html
-                position={[26, 6, 5]}
-                transform="screen"
-                rotation={[0, 0, 0]}
-                occlude
-              >
-                <p
-                  style={{
-                    color: "white",
-                    fontSize: "2rem",
-                    textAlign: "justify",
-                    maxWidth: "none",
-                    width: "70%",
-                  }}
-                >
-                  La industria textil es responsable de aproximadamente el 20%
-                  de la contaminación del agua a nivel mundial.
-                </p>
-              </Html>
-            </Canvas>
-          </Suspense>
-        </section>
-
-        <h2 className="Scene-title">Puesta en Escena</h2>
-        <section className="River-Scene">
-          <Suspense>
-            <Canvas camera={{ position: [0, 5, 12] }}>
-              <River />
-              <directionalLight
-                position={[0, 10, 0]}
-                intensity={1}
-                castShadow
-              />
-              <Stading />
-              <Controls />
-            </Canvas>
-          </Suspense>
-        </section>
-
         <section className="acidity-explanation">
           <h2>¿Qué es la acidificación?</h2>
           <p>
@@ -114,8 +59,68 @@ const Acidity = () => {
             vida acuática y alterar los ecosistemas acuáticos.
           </p>
         </section>
+
+        <section className="acidity-fish-scene">
+          <Canvas shadows camera={{ position: [0, 6, 28] }}>
+            <Physics>
+            <FloorFish
+              rotation={[-Math.PI / 2, 0, 0]}
+              position={[0, -3, 0]}
+              receiveShadow
+              name="floor"
+            />
+            </Physics>
+
+            <KeyboardControls map={map}>
+              <Fish position={[-1, 1, 0]} receiveShadow />
+            </KeyboardControls>
+            <Stading />
+            <LightFish />
+            <Controls />
+            <Html
+              position={[-9, 6, 5]}
+              transform="screen"
+              rotation={[0, 0, 0]}
+              occlude
+            >
+              <p>
+                La industria textil es responsable de aproximadamente el 20% de
+                la contaminación del agua a nivel mundial.
+              </p>
+            </Html>
+            <Html
+              position={[26, 6, 5]}
+              transform="screen"
+              rotation={[0, 0, 0]}
+              occlude
+            >
+              <p>
+                La industria textil es responsable de aproximadamente el 20% de
+                la contaminación del agua a nivel mundial.
+              </p>
+            </Html>
+          </Canvas>
+        </section>
+
+        <section className="acidity-river-scene">
+          <Canvas camera={{ position: [0, 5, 12] }}>
+            <River />
+            <directionalLight position={[0, 10, 0]} intensity={1} castShadow />
+            <Cloud
+              position={[0, 7, 0]}
+              speed={2}
+              scale={0.5}
+              color="#d3d3d3"
+              opacity={0.5}
+            />
+
+            <Stading />
+            <Controls />
+          </Canvas>
+        </section>
+
       </main>
-    </>
+    </section>
   );
 };
 
