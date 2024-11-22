@@ -1,4 +1,4 @@
-import { Cloud, Environment } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 
 const Stading = () => {
   const cloudPosition = [0, 8, 0];
@@ -6,14 +6,7 @@ const Stading = () => {
 
   return (
     <>
-      <Cloud
-        position={cloudPosition}
-        speed={2}
-        scale={0.5}
-        color="#d3d3d3"
-        opacity={0.5}
-      />
-
+      
       <Environment
         ground={{
           height: 20,
