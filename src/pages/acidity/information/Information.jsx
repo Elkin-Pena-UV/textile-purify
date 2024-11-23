@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./Information.css";
 
 const Information = ({ title, description, urlImage }) => {
   const [isImageOpen, setIsImageOpen] = useState(false);
 
-  const handleImageClick = () => {
-    setIsImageOpen(!isImageOpen);
-  };
+  const handleImageClick = useCallback(() => {
+    setIsImageOpen((prev) => !prev); 
+  }, []);
 
   return (
     <div className="information">
@@ -19,6 +19,7 @@ const Information = ({ title, description, urlImage }) => {
           alt={`Image representing ${title}`}
           onClick={handleImageClick}
           loading="lazy"
+          aria-label={`Click to enlarge image of ${title}`}
         />
       </div>
 
