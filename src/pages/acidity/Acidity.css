@@ -95,5 +95,27 @@
   border-radius: 14px;
 }
 
+.acidity-information {
+  padding: 1rem;
+  margin-top: 100px;
+}
+
+
+.acidity-information h2{
+
+  font-size: 2rem;
+  color: #c7f9cc;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 2px;
+  text-align: center;
+}
+
+
+.acidity-information-container {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);  
+  gap: 20px;  
+}
 
 
