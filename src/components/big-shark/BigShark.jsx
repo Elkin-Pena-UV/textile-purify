@@ -1,11 +1,12 @@
 import { useAnimations, useGLTF, useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { RigidBody } from "@react-three/rapier";
+import { useCallback, useEffect, useRef} from "react";
 import * as THREE from "three";
 
 const BigShark = (props) => {
   const sharkRef = useRef();
+  const rbSharkRef = useRef();
 
   const { nodes, materials, animations } = useGLTF("models-3d/big-shark.glb");
 
@@ -23,67 +24,52 @@ const BigShark = (props) => {
 
   const [sub, get] = useKeyboardControls();
 
-  
-  
   useEffect(() => {
     return sub(
       (state) => state.forward,
-      (state) => state.back
+      (state) => state.back,
+      (state) => state.left,
+      (state) => state.right
     );
   });
 
-  useFrame((state, delta) => {
+  const handleSharkMovement = useCallback(() => {
     const { forward, back, left, right } = get();
 
-    const rotationSpeed = 0.18; // Controla la suavidad de la rotación
-  
-    // Creamos el cuaternión objetivo según la dirección
-    let targetQuaternion = new THREE.Quaternion();
-
-    if (forward && left) {
-        sharkRef.current.position.z -= 6 * delta;
-        sharkRef.current.position.x -= 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, -(3 * Math.PI) / 4, 0));
-        
-    } else if (forward && right) {
-        sharkRef.current.position.z -= 6 * delta;
-        sharkRef.current.position.x += 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, (3 * Math.PI) / 4, 0));
-    } else if (back && left) {
-        sharkRef.current.position.z += 6 * delta;
-        sharkRef.current.position.x -= 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, -Math.PI / 4, 0));
-    } else if (back && right) {
-        sharkRef.current.position.z += 6 * delta;
-        sharkRef.current.position.x += 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, Math.PI / 4, 0));
-    } else if (forward) {
-        sharkRef.current.position.z -= 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, Math.PI, 0));
-    } else if (back) {
-        sharkRef.current.position.z += 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, 0, 0));
-    } else if (left) {
-        sharkRef.current.position.x -= 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, -Math.PI / 2, 0));
-    } else if (right) {
-        sharkRef.current.position.x += 6 * delta;
-        targetQuaternion.setFromEuler(new THREE.Euler(0, Math.PI / 2, 0));
+    if (forward){
+      rbSharkRef.current.applyImpulse({x:0, y:0, z:-0.5}, true);
+      sharkRef.current.rotation.y = -3
     }
-
-    // Interpolación suave con `slerp` hacia la rotación objetivo
-    sharkRef.current.quaternion.slerp(targetQuaternion, rotationSpeed);
-  
-    get().back;
+    if(back){
+      rbSharkRef.current.applyImpulse({x:0, y:0, z:0.5}, true);
+      sharkRef.current.rotation.y = 0
+    }
+    if(left){
+      rbSharkRef.current.applyImpulse({x:-0.5, y:0, z:0}, true);
+      sharkRef.current.rotation.y = -Math.PI / 2
+    }
+    if(right){
+      rbSharkRef.current.applyImpulse({x:0.5, y:0, z:0}, true);
+      sharkRef.current.rotation.y = Math.PI / 2
+    }
+    
   });
+  
+  useFrame((_state) => {  
+    handleSharkMovement();
+  })
+  
+  const handleShark = useCallback(()=>{
+      rbSharkRef.current.applyImpulse({x:0, y:20, z:-5}, true);
+  },[])
+
 
   return (
-    <group
-      ref={sharkRef}
-      {...props}
-      dispose={null}
-      castShadow
-    >
+    <RigidBody name="rbShark" ref={rbSharkRef} type="dynamic" onCollisionEnter={({manifold, target, other})=>{
+      if(other.rigidBodyObject.name === "rbWoodenSign"){
+        console.log("Shark collided with wooden sign");}
+    }}>
+    <group ref={sharkRef} {...props} dispose={null} onClick={handleShark} castShadow>
       <group name="Scene">
         <group
           name="Sketchfab_model"
@@ -184,6 +170,7 @@ const BigShark = (props) => {
         </group>
       </group>
     </group>
+    </RigidBody>
   );
 };
 
