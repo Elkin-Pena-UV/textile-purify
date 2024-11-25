@@ -33,16 +33,16 @@ const Fish = (props) => {
   useFrame((state, delta) => {
     const movement = { x: 0, z: 0 };
     if (keysPressed.current["ArrowUp"] || keysPressed.current["KeyW"]) {
-      movement.z += 1;
-    }
-    if (keysPressed.current["ArrowDown"] || keysPressed.current["KeyS"]) {
       movement.z -= 1;
     }
+    if (keysPressed.current["ArrowDown"] || keysPressed.current["KeyS"]) {
+      movement.z += 1;
+    }
     if (keysPressed.current["ArrowLeft"] || keysPressed.current["KeyA"]) {
-      movement.x += 1;
+      movement.x -= 1;
     }
     if (keysPressed.current["ArrowRight"] || keysPressed.current["KeyD"]) {
-      movement.x -= 1;
+      movement.x += 1;
     }
 
     const length = Math.sqrt(movement.x ** 2 + movement.z ** 2);
@@ -51,7 +51,7 @@ const Fish = (props) => {
       movement.z /= length;
     }
 
-    const speed = 8;
+    const speed = 15;
     position.current[0] += movement.x * delta * speed;
     position.current[2] += movement.z * delta * speed;
 
