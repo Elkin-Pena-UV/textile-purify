@@ -9,6 +9,8 @@ import Header from "../../components/header/Header";
 import Controls from "../../components/controls/Controls";
 import WoodenSign from "../../components/wooden-sign/WoodenSign";
 import PileOfCloths from "../../components/pile-of-cloths/PileOfCloths";
+import Corals from "../../components/Corals/Corals";
+import { Physics } from "@react-three/rapier";
 
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
@@ -16,6 +18,7 @@ const SharkScene = () => {
   const [clickCount, setClickCount] = useState(0);
 
   const texts = [
+    "Haz clic en el letrero para aprender más",
     "¡Hola! ¿Como estás?",
     "Sabias que la industria textil utiliza alrededor de 8,000 sustancias químicas",
     "Muchas de las cuales terminan en los ríos y océanos sin un tratamiento adecuado",
@@ -41,10 +44,13 @@ const SharkScene = () => {
     >
       <LightBigShark />
       <Controls />
-      <BigShark />
-      <WoodenSign onClick={handleSignClick} />
-      <PileOfCloths />
-      <Floor />
+      <Physics debug>
+        <BigShark position={[0, 1, 0]} />
+        <Corals />
+        <WoodenSign onClick={handleSignClick} />
+        <PileOfCloths />
+        <Floor />
+      </Physics>
       <Text
         position={[0, 2, 0]} // Posición del texto en el canvas
         fontSize={0.2} // Tamaño del texto
@@ -59,16 +65,16 @@ const SharkScene = () => {
         océano.
       </Text>
       {isClicked && (
-            <Text
-              position={[5, 3, -10]}
-              color="Black"
-              fontSize={0.5}
-              outlineWidth={0.9}
-              outlineColor="White"
-            >
-              {texts[clickCount]}
-            </Text>
-          )}
+        <Text
+          position={[5, 3, -10]}
+          color="Black"
+          fontSize={0.5}
+          outlineWidth={0.9}
+          outlineColor="White"
+        >
+          {texts[clickCount]}
+        </Text>
+      )}
     </Canvas>
   );
 };
@@ -124,7 +130,6 @@ const Pollution = () => {
             <SharkScene />
           </KeyboardControls>
         </div>
-        
       </section>
     </div>
   );
