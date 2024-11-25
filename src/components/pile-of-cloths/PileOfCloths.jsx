@@ -26,7 +26,7 @@ const PileOfCloths = (props) => {
           material={materials.Dress_pile_u1_v1}
           rotation={[-Math.PI / 2, 0, 0]}
           scale={0.081}
-          position={[9, -1, 0]}
+          position={[9, 0, 0]}
           onPointerOver={() => set(true)} onPointerOut={() => set(false)}
           onClick={goToScenaryPollution}
         />

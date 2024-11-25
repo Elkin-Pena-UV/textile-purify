@@ -1,4 +1,5 @@
 import { useTexture } from "@react-three/drei";
+import { RigidBody } from "@react-three/rapier";
 import { useMemo } from "react";
 
 const Floor = () => {
@@ -11,7 +12,8 @@ const Floor = () => {
     })
     
     return(
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow>
+        <RigidBody type="Static" friction={1.5}>
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
             <planeGeometry args={[50, 50]} />
             <meshStandardMaterial
             map={floorTexture.map}
@@ -20,6 +22,7 @@ const Floor = () => {
             ambientOcclusionMap={floorTexture.ambientOcclusionMap}
             /> {/* Cambia color según prefieras */}
         </mesh>
+        </RigidBody>
     )
 }
 export default Floor;
