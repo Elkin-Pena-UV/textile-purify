@@ -26,11 +26,12 @@
 }
 .information-content {
   display: flex;
+  flex-direction: column;
   align-items: center;  
+  gap: 2rem;
 }
 
 .image {
-  width: 30%;
   height: auto;
   cursor: pointer;
   border-radius: 8px;
