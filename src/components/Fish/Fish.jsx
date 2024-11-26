@@ -4,14 +4,15 @@ import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
 import { MeshStandardMaterial, LoopRepeat } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useMemo } from "react";
-
+import { RigidBody } from "@react-three/rapier";
+import { useCallback } from "react";
 const Fish = (props) => {
   const group = useRef();
   const { nodes, animations } = useGLTF("models-3d/fish.glb");
   const { actions } = useAnimations(animations, group);
   const position = useRef([0, 1, 0]);
   const keysPressed = useRef({});
-
+  const rbFisfRef = useRef();
   useEffect(() => {
     const handleKeyDown = (event) => {
       keysPressed.current[event.code] = true;
@@ -66,7 +67,6 @@ const Fish = (props) => {
 
     if (group.current) {
       group.current.position.set(...position.current);
-
     }
   });
 
@@ -95,29 +95,35 @@ const Fish = (props) => {
     });
   }, [fishTexture, normalMap]);
 
-  const handleFish = () => {
-    alert(
-      "Detrás de cada prenda hay un impacto: elige marcas que respeten el agua y el medio ambiente."
-    );
-  };
+  // const handleFish = () => {
+  //   alert(
+  //     "Detrás de cada prenda hay un impacto: elige marcas que respeten el agua y el medio ambiente."
+  //   );
+  // };
+
+  const handleSFish = useCallback(() => {
+    rbFisfRef.current.applyImpulse({ x: 0, y: 20, z: -5 }, true);
+  }, []);
 
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <mesh
-          name="fish"
-          castShadow
-          receiveShadow
-          geometry={nodes.fish.geometry}
-          material={fishMaterial}
-          morphTargetDictionary={nodes.fish.morphTargetDictionary}
-          morphTargetInfluences={nodes.fish.morphTargetInfluences}
-          position={[-1, -1, 0]}
-          rotation={[Math.PI, 1.5, Math.PI]}
-          onClick={handleFish}
-        />
+    <RigidBody colliders="cuboid" type="kinematicVelocity" ref={rbFisfRef}>
+      <group ref={group} {...props} dispose={null} onClick={handleSFish}>
+        <group name="Scene">
+          <mesh
+            name="fish"
+            castShadow
+            receiveShadow
+            geometry={nodes.fish.geometry}
+            material={fishMaterial}
+            morphTargetDictionary={nodes.fish.morphTargetDictionary}
+            morphTargetInfluences={nodes.fish.morphTargetInfluences}
+            position={[-1, 0.1, 0]}
+            rotation={[Math.PI, 1.5, Math.PI]}
+            
+          />
+        </group>
       </group>
-    </group>
+    </RigidBody>
   );
 };
 

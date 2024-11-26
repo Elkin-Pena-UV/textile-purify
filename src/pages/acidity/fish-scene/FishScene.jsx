@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { KeyboardControls, Html } from "@react-three/drei";
 import FloorFish from "../../../components/floorFish/FloorFish";
-import Fish from "../../../components/Fish/Fish";
+import Fish from "../../../components/fish/Fish"; ///MIRA AL MOMENTO DE SIBIRLO A LA WEB
 import Stading from "../../../components/stading/Stading";
 import LightFish from "../../../components/ligths/LightFish";
 import Controls from "../../../components/controls/Controls";
@@ -33,17 +33,14 @@ const FishScene = () => {
         </div>
         <div className="container-canvas">
           <Canvas shadows camera={{ position: [0, 6, 28] }}>
-            <Physics>
+            <Physics >
               <FloorFish
-                rotation={[-Math.PI / 2, 0, 0]}
-                position={[0, -3, 0]}
-                receiveShadow
-                name="floor"
-              />
+                rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow name="floor" />
+              <KeyboardControls map={map}>
+                <Fish position={[-1, 1, 0]} receiveShadow />
+              </KeyboardControls>
             </Physics>
-            <KeyboardControls map={map}>
-              <Fish position={[-1, 1, 0]} receiveShadow />
-            </KeyboardControls>
+
             <Stading />
             <LightFish />
             <Controls />

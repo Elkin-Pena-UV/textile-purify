@@ -16,7 +16,7 @@ const FloorFish = (props) => {
   });
 
   return (
-    <RigidBody>
+    <RigidBody type="Static" friction={2}>
       <mesh {...props} >
         <planeGeometry args={[100, 100]} />
         <meshStandardMaterial
