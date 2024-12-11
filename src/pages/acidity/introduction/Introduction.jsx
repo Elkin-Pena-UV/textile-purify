@@ -18,6 +18,7 @@ const Introduction = () => {
         adecuadamente los niveles de pH para proteger la salud de nuestros
         ecosistemas acuáticos.
       </p>
+
     </section>
   );
 };
