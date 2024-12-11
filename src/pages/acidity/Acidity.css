@@ -3,27 +3,25 @@
   padding: 1rem;
   box-sizing: border-box;
   background: url("/images/backgroundAcidity.jpg") no-repeat center center fixed;
-  background-size: cover; /* Evita que la imagen de fondo se distorsione */
+  background-size: cover; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Asegura que el contenido comience desde arriba */
-  overflow: hidden; /* Evita que el contenido se desborde */
-  margin-left: auto; /* Centra el contenedor */
-  margin-right: auto; /* Centra el contenedor */
+  justify-content: flex-start; 
+  overflow: hidden; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
-/* Estilos para el contenedor de main */
 main {
   width: 100%;
-  max-width: 1600px; /* Limita el tamaño máximo del contenedor */
+  max-width: 1600px; 
   margin: 0 auto;
   padding: 2rem;
   box-sizing: border-box;
 
 }
 
-/* Estilos para el título */
 .acidity-information h2 {
   font-size: 2rem;
   color: #c7f9cc;
@@ -33,19 +31,17 @@ main {
   text-align: center;
 }
 
-/* Estilo para la grilla de la información */
 .acidity-information-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* Dos columnas iguales */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   width: 100%;
-  padding: 1rem; /* Añadimos padding para evitar que los elementos se peguen */
+  padding: 1rem; 
   box-sizing: border-box;
 
-  margin-top: 20px;  /* Añadimos un margen superior */
+  margin-top: 20px;  
 }
 
-/* Estilo para cada elemento de información */
 .acidity-information-item {
   padding: 1.5rem;
   border-radius: 10px;
