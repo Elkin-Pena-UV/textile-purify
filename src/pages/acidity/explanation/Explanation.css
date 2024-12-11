@@ -1,29 +1,32 @@
-
 .explanation {
-    padding: 1.5rem;
-    border-radius: 14px;
-    background-color: rgba(0, 0, 0, 0.5);
-    max-width: 1600px;
-    margin-top: 2.5rem;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-  }
-  
-  .explanation-title{
-    font-size: 2rem;
-    color: #c7f9cc;
-    margin-bottom: 20px;
-    font-weight: bold;
-    border-bottom: 2px solid #38a3a5;
-    text-align: left;
-  }
-  
-  .explanation-description{
-    font-size: 1.2rem;
-    color: #ffffff;
-    line-height: 1.6;
-    text-align: justify;
-  }
-  
+  padding: 1.5rem;
+  border-radius: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 800px; 
+  width: 90%; 
+  margin: 1.5rem auto; 
+  box-sizing: border-box;
+}
+
+.explanation-title {
+  font-size: 1.8rem; 
+  color: #c7f9cc;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #38a3a5;
+  text-align: center;
+}
+
+.explanation-description {
+  font-size: 1.1rem; 
+  color: #ffffff;
+  line-height: 1.8; 
+  text-align: justify;
+  max-width: 700px; 
+  margin: 0 auto; 
+}
+
+.explanation:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
