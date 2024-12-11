@@ -24,6 +24,9 @@ const RiverScene = () => {
             contaminan los ecosistemas acuáticos, alterando el equilibrio de los
             ríos y afectando a las especies locales.
           </p>
+
+          
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XnQFLQbs-vM?si=F3F1AOwpuBMxsWcW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <div className="container-canvas">
@@ -41,6 +44,7 @@ const RiverScene = () => {
             <Controls />
           </Canvas>
         </div>
+
       </section>
     </>
   );
