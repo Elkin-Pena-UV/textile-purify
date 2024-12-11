@@ -22,7 +22,7 @@ const Information = ({ title, description, urlImage,imageSize }) => {
       </div>
 
       {isImageOpen && (
-        <section className="modal open" onClick={handleImageClick}>
+        <section className="modal open" onClick={handleImageClick} aria-label="Close image modal" tabIndex={0} >
           <img
             src={urlImage}
             className="modal-image"
