@@ -46,6 +46,12 @@ const Router = createBrowserRouter([
         <ScenaryPollution />
       </ProtectedRoute>
     ),
-  }
+    path: "/quiz",
+    element: (
+      <ProtectedRoute>
+        <Quiz />
+      </ProtectedRoute>
+    ),
+  },
 ]);
 export default Router;
