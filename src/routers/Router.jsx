@@ -6,6 +6,8 @@ import PublicRoute from "./PublicRoute";
 import Pollution from "../pages/pollution/Pollution";
 import Acidity from "../pages/acidity/Acidity";
 import ScenaryPollution from "../pages/pollution/scenary/ScenaryPollution";
+import Quiz from "../pages/quiz/Quiz";
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +48,10 @@ const Router = createBrowserRouter([
         <ScenaryPollution />
       </ProtectedRoute>
     ),
+  
+  },
+  
+  {
     path: "/quiz",
     element: (
       <ProtectedRoute>
