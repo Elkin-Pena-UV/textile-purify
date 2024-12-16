@@ -3,7 +3,8 @@ const LightFish = () => {
     <>
       <directionalLight
         position={[0, 9, 0]}
-        intensity={5}  
+        intensity={5}
+        color="#6cc1f7"
         castShadow
         shadow-mapSize={[1024, 1024]}
         shadow-camera-far={50}
