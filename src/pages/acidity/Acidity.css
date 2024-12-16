@@ -1,89 +1,56 @@
 .container-page {
   min-height: 100vh; 
-  padding: 1rem;
-  box-sizing: border-box;
-  background: url("/images/backgroundAcidity.jpg") no-repeat center center fixed;
+  padding: 0;
+  box-sizing: border-box; 
   background-size: cover; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   overflow: hidden; 
-  margin-left: auto; 
-  margin-right: auto; 
+  margin: 0;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.sound-toggle {
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  z-index: 9999;
+  background: transparent; 
+  border: none; 
+  cursor: pointer;
+  padding: 10px; 
 }
 
-main {
-  width: 100%;
-  max-width: 1600px; 
-  margin: 0 auto;
-  padding: 2rem;
-  box-sizing: border-box;
-
-}
-
-.acidity-information h2 {
-  font-size: 2rem;
-  color: #c7f9cc;
-  margin-bottom: 20px;
-  font-weight: bold;
-  border-bottom: 2px solid #38a3a5;
-  text-align: center;
-}
-
-.acidity-information-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 20px;
-  width: 100%;
-  padding: 1rem; 
-  box-sizing: border-box;
-
-  margin-top: 20px;  
-}
-
-.acidity-information-item {
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-sizing: border-box;
-  text-align: justify;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 350px; 
-  max-width: 100%; 
-  margin-left: auto; 
-  margin-right: auto;
-}
-
-.acidity-information-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+.sound-toggle img {
+  width: 40px; 
+  height: 40px;
   object-fit: cover;
-  margin-top: 15px; 
+}
+.post-processing-toggle {
+  position: fixed;
+  bottom: 35px; 
+  
+  right: 90px; 
+  z-index: 9999; 
+  background: rgba(0, 0, 0, 0.5); 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border-radius: 5px; 
+  transition: background 0.3s; 
 }
 
-@media (max-width: 768px) {
-  .acidity-information-container {
-    grid-template-columns: 1fr; 
-  }
-
-  .acidity-information-item {
-    padding: 1rem;  
-  }
+.post-processing-toggle:hover {
+  background: rgba(0, 0, 0, 0.8); 
 }
 
-.acidity-information-item h3 {
-  font-size: 1.5rem;
-  color: #c7f9cc;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.acidity-information-item p {
-  font-size: 1rem;
-  color: #ffffff;
-  line-height: 1.6;
-  margin-bottom: 15px;
+.post-processing-toggle:focus {
+  outline: none; 
 }
