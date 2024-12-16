@@ -11,7 +11,6 @@ import {
   Html,
   KeyboardControls,
   Loader,
-  OrbitControls,
   PositionalAudio,
 } from "@react-three/drei";
 
@@ -30,10 +29,10 @@ import Mantaray from "../../components/mantaray/Mantaray";
 import Whale from "../../components/whale/Whale";
 import { Text } from "@react-three/drei";
 import Ocean from "../../components/ocean/Ocean";
-
+import Controls from "../../components/controls/Controls";
 const Acidity = () => {
   const audioRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [isPostProcessingEnabled, setIsPostProcessingEnabled] = useState(true); 
 
   useEffect(() => {
@@ -126,7 +125,7 @@ const Acidity = () => {
           <LightFish />
           <Video name="screen" position={[-8, 1.5, -2]} scale={2} />
           <PostProcessing isEnabled={isPostProcessingEnabled} />
-          <OrbitControls />
+          <Controls/>
 
           <Whale
             onClick={handleWhaleClick}
