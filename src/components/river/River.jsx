@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 const River = (props) => {
+  const group = useRef();
   const { nodes, materials } = useGLTF("models-3d/River.glb");
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={group}>
       <mesh
         castShadow
         receiveShadow
