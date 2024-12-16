@@ -11,6 +11,8 @@ import WoodenSign from "../../components/wooden-sign/WoodenSign";
 import PileOfCloths from "../../components/pile-of-cloths/PileOfCloths";
 import Corals from "../../components/Corals/Corals";
 import { Physics } from "@react-three/rapier";
+import VideoPollution from "../../components/video/VideoPollution";
+import MutedVideo from "../../components/video/MutedVideo";
 
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
@@ -51,6 +53,7 @@ const SharkScene = () => {
         <PileOfCloths />
         <Floor />
       </Physics>
+      <MutedVideo />
       <Text
         position={[0, 2, 0]} // Posición del texto en el canvas
         fontSize={0.2} // Tamaño del texto
