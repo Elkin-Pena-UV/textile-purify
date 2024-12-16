@@ -19,9 +19,7 @@ const Whale = (props) => {
       ref={group}
       {...props}
       dispose={null}
-      scale={[0.1, 0.1, 0.1]}
-      position={[1, 1, 1]}
-      rotation={[0, Math.PI / 2, 0]}
+      
     >
       <group name="Scene">
         <group name="Sketchfab_model">
