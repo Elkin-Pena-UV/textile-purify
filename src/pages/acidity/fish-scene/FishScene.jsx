@@ -5,7 +5,6 @@ import { Canvas } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { KeyboardControls, Html } from "@react-three/drei";
 import FloorFish from "../../../components/floorFish/FloorFish";
-import Fish from "../../../components/Fish/Fish"; ///MIRA AL MOMENTO DE SIBIRLO A LA WEB
 import Stading from "../../../components/stading/Stading";
 import LightFish from "../../../components/ligths/LightFish";
 import Controls from "../../../components/controls/Controls";
