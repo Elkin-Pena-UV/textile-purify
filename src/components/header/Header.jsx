@@ -39,6 +39,9 @@ const Header = () => {
             <Link to="/acidity">Acidez</Link>
           </li>
           <li>
+            <Link to="/quiz">Quiz</Link>
+          </li>
+          <li>
             {/* Logout button with custom styling */}
             <button className="btnform" onClick={handleLogout}>
               <span>Cerrar Sesión</span>
@@ -48,8 +51,6 @@ const Header = () => {
       </nav>
     </header>
   );
-  
 };
-
 
 export default Header;
