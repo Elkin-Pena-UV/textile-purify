@@ -11,7 +11,6 @@ import {
   Html,
   KeyboardControls,
   Loader,
-  OrbitControls,
   PositionalAudio,
 } from "@react-three/drei";
 
