@@ -2,10 +2,12 @@ import { useVideoTexture } from "@react-three/drei"
 
 const MutedVideo = (props) => {
     const texture = useVideoTexture("/videos/muted_video.mp4", {
-        muted: true,
+        muted: false,
         loop: true,
-        start: true
+        start: false
     });
+
+    
 
     return (
         <mesh {...props} position={[-3, 1, 3]} name="muted-video" scale={1.3}>

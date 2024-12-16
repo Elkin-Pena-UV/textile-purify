@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import BigShark from "../../components/big-shark/BigShark";
 import { KeyboardControls, Text } from "@react-three/drei";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./Pollution.css";
 import Floor from "../../components/floor/Floor";
 import LightBigShark from "../../components/ligths/LightBigShark";
@@ -13,6 +13,7 @@ import Corals from "../../components/Corals/Corals";
 import { Physics } from "@react-three/rapier";
 import VideoPollution from "../../components/video/VideoPollution";
 import MutedVideo from "../../components/video/MutedVideo";
+
 
 //Este componente es el que se encarga de mostrar la escena del tiburón y el texto
 const SharkScene = () => {
