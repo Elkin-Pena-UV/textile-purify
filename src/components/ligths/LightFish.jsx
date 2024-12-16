@@ -1,8 +1,6 @@
-
 const LightFish = () => {
   return (
     <>
-      <ambientLight intensity={0.3} />
       <directionalLight
         position={[0, 9, 0]}
         intensity={5}  
