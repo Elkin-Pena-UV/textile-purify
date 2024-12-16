@@ -182,7 +182,7 @@ const Acidity = () => {
       </Suspense>
       <button onClick={toggleSound} className="sound-toggle">
         <img
-          src={isMuted ? "/public/icons/mute.svg" : "/public/icons/sound.svg"}
+          src={isMuted ? "/icons/mute.svg" : "/icons/sound.svg"}
           alt="sound toggle"
         />
       </button>
