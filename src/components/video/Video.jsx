@@ -2,7 +2,7 @@ import { useVideoTexture } from "@react-three/drei";
 import { useCallback, useState } from "react";
 
 const Video = (props) => {
-  const texture = useVideoTexture("/videos/video2.mp4", {
+  const texture = useVideoTexture("/videos/video1.mp4", {
     muted: false,
     loop: true,
     start: false,
