@@ -4,7 +4,7 @@ const MutedVideo = (props) => {
     const texture = useVideoTexture("/videos/muted_video.mp4", {
         muted: false,
         loop: true,
-        start: false
+        start: true
     });
 
     
