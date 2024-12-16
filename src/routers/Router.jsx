@@ -50,7 +50,6 @@ const Router = createBrowserRouter([
     ),
   
   },
-  
   {
     path: "/quiz",
     element: (
