@@ -7,9 +7,11 @@ import StadingNight from "../../../components/stading/StadingNight";
 import VideoPollution from "../../../components/video/VideoPollution";
 import Pirate from "../../../components/pirate/Pirate";
 import React, { useEffect, useRef, useState } from "react";
+import PostProcessingPollution from "../../../components/postprocessing/PostProcessingPollution";
 
 const BeachScenary = () => {
   const audioRef = useRef(null);
+  const [isPostProcessingEnabled, setIsPostProcessingEnabled] = useState(true); 
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
@@ -24,6 +26,9 @@ const BeachScenary = () => {
 
   const toggleSound = () => {
     setIsMuted((prev) => !prev);
+  };
+  const togglePostProcessing = () => {
+    setIsPostProcessingEnabled((prev) => !prev);
   };
 
   const navigate = useNavigate();
@@ -60,6 +65,7 @@ const BeachScenary = () => {
     <Canvas shadows camera={{ position: [-1, 1.5, -2.5], fov: 50 }}>
       <Pirate position={[0, 0.29, 0]} onClick={handlePirateClick} />
       <VideoPollution />
+      <PostProcessingPollution isEnabled={isPostProcessingEnabled}/>
       <Html
         center
         distanceFactor={0.9}
@@ -104,6 +110,9 @@ const BeachScenary = () => {
         alt="sound toggle"
       />
     </button>
+    <button onClick={togglePostProcessing} className="post-processing-toggle">
+        {isPostProcessingEnabled ? "Desactivar efectos" : "Activar efectos"}
+      </button>
     </>
   );
 };
